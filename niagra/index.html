@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Name" content="Niagara Gallery; Niagara Gallery Brisbane" />
+<meta http-equiv="Keyword" content="Art Gallery Brisbane; Fine Art Gallery; Fine Art Gallery Brisbane" />
+<title>Niagra Gallery</title>
+
+<link href="css/Globle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+<div id="container">
+<div class="slideOutTab"><a href="../portfolio">Back to portfolio</a>
+    
+	<script type="text/javascript">
+	$(function() {
+    
+    // This is a shortcut to bind both mouseOver and mouseOut
+    $('div.slideOutTab').hover(function() {
+        // Animate out when hovered, stopping all previous animations
+        $(this)
+            .stop(true, false)
+            .animate({
+                left: 0
+            }, 400);
+    }, function() {
+        // Animate back in when not hovered, stopping all previous animations
+        $(this)
+            .stop(true, false)
+            .animate({
+                left: -107
+            }, 400);
+    });
+    
+    
+}); 
+</script>
+</div>
+
+<div id="logo"><img src="image/NiagraArtGalleryLogo.png" width="174" height="45">
+</div>
+<a href="index.html" target="_self"><div id="nav_home">Home</div></a>
+<a href="contact.html" target="_self"><div id="nav_contact">Contact</div> </a>
+<a href="artists.html" target="_self"><div id="nav_artists">Artists</div></a>
+<div id="main">
+  <p>Niagara Galleries is committed to the exhibition and sale of the finest modern and contemporary Australian art.</p>
+  <p>The gallery has a stable of leading figurative and abstract painters, sculptors, photographers and ceramicists and also suppports young talent through an annual, independantly-curated exhibition of emerging artists.</p>
+  <p>Also on the calendar every March, is the Blue Chip Collectors? Exhibition which presents the works of acknowledged masters such as Fairweather, Beckett, Tuckson, Brack and Perceval. Through this exhibition and ongoing active dealing in the secondary art market, Director, William Nutttall, has developed an extensive personal network of collectors. Vendors can be assured of genuine appraisal, targeted marketing and individual attention by William for works offered on consignment through Niagara Galleries. </p>
+  <p>The gallery also provides a specialized art consultancy service for both individuals and corporations. William and his staff can advise on all aspects of establishing and maintaining an interesting and rewarding art collection - no matter what size or budget. They are happy to arrange on-site consultations to assist with the best selection and placement of works. Objective viewing of works and commission bidding at auction are also available.</p>
+  <p>William Nuttall is also an active member of theAustralian Commercial Galleries Association and an approved valuer under the Cultural Gifts Programme.</p> 
+  <p>Niagara newly renovated premises offer one of the most exciting and extensive stock-rooms in Melbourne and private viewings are available by appointment. </p>
+  
+<div id="pic">
+<img src="image/gallery_reception.jpg" width="164" height="104" /> </div>
+<div id="art">Art Does Matter.</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>

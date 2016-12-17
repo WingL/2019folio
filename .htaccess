@@ -1,0 +1,36 @@
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName lunwing.com
+
+# set the server administrator email
+SetEnv SERVER_ADMIN contactme@lunwing.com
+
+
+# enable basic rewriting
+RewriteEngine on
+
+# set the server timezone
+SetEnv TZ Australia/Brisbane
+
+# Remove PHP extension from links
+#RewriteCond %;{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+## RewriteRule (.*) /$1.php [L]
+RewriteRule (.*) $1.php [L]
+
+
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+\.)+php\ HTTP
+#RewriteCond %{REQUEST_METHOD} ^GET$
+##RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+#RewriteRule ^(.+)\.php$ $1 [R=301,L]
+
