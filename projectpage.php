@@ -1,9 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> <?php echo $projectpage?> | Lun Wing Design </title>
+<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
+<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
+<meta name="author" content="Ying Lun">
+
+
 <?php include'header.php'?>
 
 <?php 
 $path = $_SERVER["QUERY_STRING"];
-$img = "$path/main.jpg";
+$extention = array("jpg","png");$img = "$path/main.jpg";
+$img_after = ("$path/after.jpg");
 $info = "$path/info.txt";
+$use_2020 = file_exists($img_after);
+if ($use_2020) {
+	$img = "$path/before.jpg";
+}
 ?>
 
  <?php $fo = fopen($info,'r');
@@ -40,12 +55,25 @@ fclose($fo);?>
 
 <div class="row">
 
-	<div class="col-sm-8">    
-		<div id="category"> </div>   
-        
-		<div id="mainpic"> <img src="<?php echo $img?>" alt=""> </div>
+	<div class="col-sm-8" style="padding:0; margin:0;">    
 		
-        <div class="spacer">&nbsp;</div>
+        
+		<div id="mainpic">
+		<div style="margin:0 auto;">
+		  <img src="<?php echo $img?>" alt="">
+		  <?php
+		    if ($use_2020) {
+	      ?>
+			 <img src="<?php echo $img_after ?>" alt="">
+			 <script type="text/javascript">
+				$(window).load(function(){
+					$("#mainpic").twentytwenty();
+				});
+			 </script>
+	  	  <?php } ?>  
+		</div>
+		</div>
+        
 	</div>
 
 	<div class="col-sm-4">

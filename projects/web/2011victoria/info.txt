@@ -1,0 +1,4 @@
+Victoria Online Redesign(2011)
+5
+The redesign page useing the same elements and color schemes as original.
+It changed a bit the font and the layout. Two navigations put on right side to make it less messy. And used color gradient to highlight  the main navigation. 

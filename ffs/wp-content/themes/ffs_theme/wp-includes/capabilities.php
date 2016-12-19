@@ -1012,6 +1012,10 @@ function map_meta_cap( $cap, $user_id ) {
 	case 'edit_page':
 		$author_data = get_userdata( $user_id );
 		$post = get_post( $args[0] );
+		if ( empty( $post ) ) {
+			$caps[] = 'do_not_allow';
+			break;
+		}
 
 		if ( 'revision' == $post->post_type ) {
 			$post = get_post( $post->post_parent );

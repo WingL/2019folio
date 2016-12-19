@@ -8,20 +8,22 @@
 .show-in-big
 { display: none; }
 }
-
+ 
 @font-face {
-font-family: 'GothamHTF-Book';
+font-family: 'Roboto Slab', serif;
 font-style: normal;
 font-weight: normal;
-src:url('gothamhtf-book.woff');
+src:url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 }
+
+
 
 body{
 	margin:0px;
 	background-color:#ffffff;
 	/*line-height:1.5;*/
 	position:relative;
-        font-family: 'gothamhtf-book', Helvetica, sans-serif;
+        font-family: 'Roboto Slab', serif;
        }
 	
 
@@ -135,10 +137,10 @@ header{
 /*content*/
 #contentwrap{
 	clear:both;
-	margin-top:100px;
-	margin-bottom:20px;
-        padding:20px;
-        font-size:1em;
+	padding-top:100px;
+	padding-bottom:20px;
+	font-size:1em;
+	min-height:
        
 	}
 
@@ -187,7 +189,7 @@ footer{
 /*portfolio.php*/
 
 #thumbsarea{
-	width:800px;
+	/*width:800px;*/
 	margin-left:auto;
 	margin-right:auto;
 	
@@ -196,10 +198,10 @@ footer{
 
 
 #thumbsarea img{
-	width:165px;
-        height:110px;
-        margin:0 3% 3% 0;
-	border:1pt solid #C0C0C0;
+	width:200px;
+        height:200px;
+        margin:0 1% 1% 0;
+	border:0pt solid #C0C0C0;
         background-color:#ffffff;
         padding:0px;
       
@@ -306,11 +308,11 @@ footer{
 
 #mainpic{
 	border:1px #000 solid;
-	padding:2px;
+	padding:0px;
 }
 
 #mainpic img{
-	width: 100%;
+	width:100%;
 }
 
 #rightpanel{
@@ -331,7 +333,7 @@ footer{
 	color:#54282e;
 	float:right;
 	font-size:.8em;
-	pading-top:2px;
+	padding-top:2px;
 	margin-bottom:35px;
 }
 
@@ -354,7 +356,7 @@ footer{
 }
 
 .spacer{
-	height:100px;
+	height:200px;
 }
 
 .catergory{
@@ -363,3 +365,22 @@ footer{
 	margin-bottom:50px;
 	width:100px;
 }
+
+iframe{
+	display:block;
+	border:0;
+	height:max-height;
+	width:max-width;
+	
+}
+
+
+#overlay {
+	position:absolute;
+	top:200px;
+	color:#ffffff;
+	background-color:rgba(0,0,0,0.8);
+	padding:20px;
+
+	}
+

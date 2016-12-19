@@ -6,10 +6,38 @@
 <title>Niagra Gallery</title>
 
 <link href="css/Globle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
 <div id="container">
+<div class="slideOutTab"><a href="../portfolio">Back to portfolio</a>
+    
+	<script type="text/javascript">
+	$(function() {
+    
+    // This is a shortcut to bind both mouseOver and mouseOut
+    $('div.slideOutTab').hover(function() {
+        // Animate out when hovered, stopping all previous animations
+        $(this)
+            .stop(true, false)
+            .animate({
+                left: 0
+            }, 400);
+    }, function() {
+        // Animate back in when not hovered, stopping all previous animations
+        $(this)
+            .stop(true, false)
+            .animate({
+                left: -107
+            }, 400);
+    });
+    
+    
+}); 
+</script>
+</div>
+
 <div id="logo"><img src="image/NiagraArtGalleryLogo.png" width="174" height="45">
 </div>
 <a href="index.html" target="_self"><div id="nav_home">Home</div></a>

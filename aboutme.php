@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> About Me | Lun Wing Design </title>
+<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
+<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
+<meta name="author" content="Ying Lun">
+
 <?php include'header.php'?>
 
 

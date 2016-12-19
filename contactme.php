@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Contact Me | Lun Wing Design </title>
+<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
+<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
+<meta name="author" content="Ying Lun">
+
 <?php include'header.php'?>
 
 
@@ -5,7 +14,7 @@
 <div id="contactdetail" class="col-md-6">
  <strong><span style="color:#54284e; font-size:1.3em">My Contact<br/></span></strong><br/>
 
-<p>E-mail:hello@lunwing.com</p>
+<p>E-mail:wing@lunwing.com</p>
 <p>Enquiries?</p>
 <p>Need a quote?</p>
 <p>Have a thought of my site?</p>

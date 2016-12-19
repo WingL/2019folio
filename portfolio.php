@@ -1,11 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> My Portfolio | Lun Wing Design </title>
+<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
+<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
+<meta name="author" content="Ying Lun">
+
+
 <?php include'header.php'?>
 
 <div id="thumbsarea">
 
+<p><strong><span style="font-size:1.5em">nac(nundah activity centre)<br/></span></p>
+<?php
+      $datadir = "projects";
+     foreach (glob("$datadir/nac", GLOB_ONLYDIR) as $category_path) {
+          $category = basename($category_path);
+          foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
+              $project = basename($project_path);
+              	$thumb = "thumb.jpg";
+			
+
+			 echo '<a href="projectpage?'."$project_path".'" alt=""><img src="'."$project_path/$thumb".'" alt=""></a>';
+			 
+          }
+      }
+	
+    ?>    
+   
+
+
+<br/>
+<br/>
+
+
 <p><strong><span style="font-size:1.5em">Web Design<br/></span></strong></p><a 
-href="http://www.lunwing.com/niagra"><img src="img/niagra.gif"></a><a 
-href="http://www.lunwing.com/booderee"><img src="img/booderee.gif"></a><a
- href="http://www.lunwing.com/ffs"><img src="img/ffs.gif"></a><?php
+href="../niagra"><img src="img/niagra.jpg"></a><a 
+<a href="http://www.lunwing.com/ffs"><img src="img/ffs.jpg"></a>
+
+
+
+<?php
       $datadir = "projects";
      foreach (glob("$datadir/web", GLOB_ONLYDIR) as $category_path) {
           $category = basename($category_path);
@@ -22,12 +58,7 @@ href="http://www.lunwing.com/booderee"><img src="img/booderee.gif"></a><a
     ?>
 
 
-
-
-<br/>
-<br/>
-
-
+<!--
 <p><strong><span style="font-size:1.5em">Pen Australia<br/></span></p>
 <?php
       $datadir = "projects";
@@ -44,7 +75,7 @@ href="http://www.lunwing.com/booderee"><img src="img/booderee.gif"></a><a
       }
 	
     ?>
-
+-->
 
 
 <br/>
@@ -70,10 +101,11 @@ href="http://www.lunwing.com/booderee"><img src="img/booderee.gif"></a><a
 	
     ?>
     
-    
-   
-</div>
 
+
+
+
+</div>
 
 
   

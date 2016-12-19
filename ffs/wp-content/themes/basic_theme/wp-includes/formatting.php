@@ -107,7 +107,14 @@ function wptexturize($text) {
 	$no_texturize_tags_stack = array();
 	$no_texturize_shortcodes_stack = array();
 
-	$textarr = preg_split('/(<.*>|\[.*\])/Us', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+	// Look for shortcodes and HTML elements.
+	
+	$shortcode_regex =
+		  '\['          // Find start of shortcode.
+		. '[^\[\]<>]++' // Shortcodes do not contain other shortcodes. Possessive critical.
+		. '\]';         // Find end of shortcode.
+
+	$textarr = preg_split("/(<[^>]*>|$shortcode_regex)/s", $text, -1, PREG_SPLIT_DELIM_CAPTURE);
 
 	foreach ( $textarr as &$curl ) {
 		if ( empty( $curl ) )
@@ -117,7 +124,7 @@ function wptexturize($text) {
 		$first = $curl[0];
 		if ( '<' === $first ) {
 			_wptexturize_pushpop_element($curl, $no_texturize_tags_stack, $no_texturize_tags, '<', '>');
-		} elseif ( '[' === $first ) {
+		} elseif ( '[' === $first && 1 === preg_match( '/^' . $shortcode_regex . '$/', $curl ) ) {
 			_wptexturize_pushpop_element($curl, $no_texturize_shortcodes_stack, $no_texturize_shortcodes, '[', ']');
 		} elseif ( empty($no_texturize_shortcodes_stack) && empty($no_texturize_tags_stack) ) {
 			// This is not a tag, nor is the texturization disabled static strings
@@ -159,6 +166,8 @@ function _wptexturize_pushpop_element($text, &$stack, $disabled_elements, $openi
 
 			array_push($stack, $matches[1]);
 		}
+	} elseif ( 0 == count( $stack ) ) {
+		// Stack is empty. Just stop.
 	} else {
 		// Closing? Check $text+2 against disabled elements
 		$c = preg_quote($closing, '/');
@@ -229,6 +238,12 @@ function wpautop($pee, $br = true) {
 		$pee = preg_replace('|\s*<param([^>]*)>\s*|', "<param$1>", $pee); // no pee inside object/embed
 		$pee = preg_replace('|\s*</embed>\s*|', '</embed>', $pee);
 	}
+
+	// Standardize newline characters to "\n".
+	$pee = str_replace(array("\r\n", "\r"), "\n", $pee); 
+
+	// Strip newlines from all elements.
+	$pee = wp_replace_in_html_tags( $pee, array( "\n" => " " ) );
 	$pee = preg_replace("/\n\n+/", "\n\n", $pee); // take care of duplicates
 	// make paragraphs, including one at the end
 	$pees = preg_split('/\n\s*\n/', $pee, -1, PREG_SPLIT_NO_EMPTY);
@@ -256,6 +271,74 @@ function wpautop($pee, $br = true) {
 		$pee = str_replace(array_keys($pre_tags), array_values($pre_tags), $pee);
 
 	return $pee;
+}
+
+/**
+ * Replace characters or phrases within HTML elements only.
+ *
+ * @since 4.2.3
+ *
+ * @param string $haystack The text which has to be formatted.
+ * @param array $replace_pairs In the form array('from' => 'to', ...).
+ * @return string The formatted text.
+ */
+function wp_replace_in_html_tags( $haystack, $replace_pairs ) {
+	// Find all elements.
+	$comments =
+		  '!'           // Start of comment, after the <.
+		. '(?:'         // Unroll the loop: Consume everything until --> is found.
+		.     '-(?!->)' // Dash not followed by end of comment.
+		.     '[^\-]*+' // Consume non-dashes.
+		. ')*+'         // Loop possessively.
+		. '(?:-->)?';   // End of comment. If not found, match all input.
+
+	$regex =
+		  '/('              // Capture the entire match.
+		.     '<'           // Find start of element.
+		.     '(?(?=!--)'   // Is this a comment?
+		.         $comments // Find end of comment.
+		.     '|'
+		.         '[^>]*>?' // Find end of element. If not found, match all input.
+		.     ')'
+		. ')/s';
+
+	$textarr = preg_split( $regex, $haystack, -1, PREG_SPLIT_DELIM_CAPTURE );
+	$changed = false;
+
+	// Optimize when searching for one item.
+	if ( 1 === count( $replace_pairs ) ) {
+		// Extract $needle and $replace.
+		foreach ( $replace_pairs as $needle => $replace );
+
+		// Loop through delimeters (elements) only.
+		for ( $i = 1, $c = count( $textarr ); $i < $c; $i += 2 ) { 
+			if ( false !== strpos( $textarr[$i], $needle ) ) {
+				$textarr[$i] = str_replace( $needle, $replace, $textarr[$i] );
+				$changed = true;
+			}
+		}
+	} else {
+		// Extract all $needles.
+		$needles = array_keys( $replace_pairs );
+
+		// Loop through delimeters (elements) only.
+		for ( $i = 1, $c = count( $textarr ); $i < $c; $i += 2 ) { 
+			foreach ( $needles as $needle ) {
+				if ( false !== strpos( $textarr[$i], $needle ) ) {
+					$textarr[$i] = strtr( $textarr[$i], $replace_pairs );
+					$changed = true;
+					// After one strtr() break out of the foreach loop and look at next element.
+					break;
+				}
+			}
+		}
+	}
+
+	if ( $changed ) {
+		$haystack = implode( $textarr );
+	}
+
+	return $haystack;
 }
 
 /**
@@ -1008,18 +1091,18 @@ function sanitize_title_with_dashes($title, $raw_title = '', $context = 'display
  *
  * @since 2.5.1
  *
- * @param string $orderby Order by string to be checked.
- * @return string|false Returns the order by clause if it is a match, false otherwise.
+ * @param string $orderby Order by clause to be validated.
+ * @return string|bool Returns $orderby if valid, false otherwise.
  */
-function sanitize_sql_orderby( $orderby ){
-	preg_match('/^\s*([a-z0-9_]+(\s+(ASC|DESC))?(\s*,\s*|\s*$))+|^\s*RAND\(\s*\)\s*$/i', $orderby, $obmatches);
-	if ( !$obmatches )
-		return false;
-	return $orderby;
+function sanitize_sql_orderby( $orderby ) {
+	if ( preg_match( '/^\s*(([a-z0-9_]+|`[a-z0-9_]+`)(\s+(ASC|DESC))?\s*(,\s*(?=[a-z0-9_`])|$))+$/i', $orderby ) || preg_match( '/^\s*RAND\(\s*\)\s*$/i', $orderby ) ) {
+		return $orderby;
+	}
+	return false;
 }
 
 /**
- * Santizes a html classname to ensure it only contains valid characters
+ * Sanitizes an HTML classname to ensure it only contains valid characters.
  *
  * Strips the string down to A-Z,a-z,0-9,_,-. If this results in an empty
  * string then it will return the alternative value supplied.

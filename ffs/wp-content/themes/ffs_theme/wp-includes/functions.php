@@ -242,9 +242,10 @@ function maybe_unserialize( $original ) {
  * @since 2.0.5
  *
  * @param mixed $data Value to check to see if was serialized.
+ * @param bool $strict Optional. Whether to be strict about the end of the string. Defaults true.
  * @return bool False if not serialized and true if it was.
  */
-function is_serialized( $data ) {
+function is_serialized( $data, $strict = true ) {
 	// if it isn't a string, it isn't serialized
 	if ( ! is_string( $data ) )
 		return false;
@@ -256,21 +257,39 @@ function is_serialized( $data ) {
 		return false;
 	if ( ':' !== $data[1] )
 		return false;
-	$lastc = $data[$length-1];
-	if ( ';' !== $lastc && '}' !== $lastc )
-		return false;
+	if ( $strict ) {
+		$lastc = $data[ $length - 1 ];
+		if ( ';' !== $lastc && '}' !== $lastc )
+			return false;
+	} else {
+		$semicolon = strpos( $data, ';' );
+		$brace     = strpos( $data, '}' );
+		// Either ; or } must exist.
+		if ( false === $semicolon && false === $brace )
+			return false;
+		// But neither must be in the first X characters.
+		if ( false !== $semicolon && $semicolon < 3 )
+			return false;
+		if ( false !== $brace && $brace < 4 )
+			return false;
+	}
 	$token = $data[0];
 	switch ( $token ) {
 		case 's' :
-			if ( '"' !== $data[$length-2] )
+			if ( $strict ) {
+				if ( '"' !== $data[ $length - 2 ] )
+					return false;
+			} elseif ( false === strpos( $data, '"' ) ) {
 				return false;
+			}
 		case 'a' :
 		case 'O' :
 			return (bool) preg_match( "/^{$token}:[0-9]+:/s", $data );
 		case 'b' :
 		case 'i' :
 		case 'd' :
-			return (bool) preg_match( "/^{$token}:[0-9.E-]+;\$/", $data );
+			$end = $strict ? '$' : '';
+			return (bool) preg_match( "/^{$token}:[0-9.E-]+;$end/", $data );
 	}
 	return false;
 }
@@ -317,7 +336,7 @@ function maybe_serialize( $data ) {
 
 	// Double serialization is required for backward compatibility.
 	// See http://core.trac.wordpress.org/ticket/12930
-	if ( is_serialized( $data ) )
+	if ( is_serialized( $data, false ) )
 		return serialize( $data );
 
 	return $data;
@@ -1261,7 +1280,7 @@ function wp_get_referer() {
 		$ref = $_SERVER['HTTP_REFERER'];
 
 	if ( $ref && $ref !== $_SERVER['REQUEST_URI'] )
-		return $ref;
+		return wp_validate_redirect( $ref, false );
 	return false;
 }
 
@@ -1276,7 +1295,7 @@ function wp_get_referer() {
  */
 function wp_get_original_referer() {
 	if ( !empty( $_REQUEST['_wp_original_http_referer'] ) )
-		return $_REQUEST['_wp_original_http_referer'];
+		return wp_validate_redirect( $_REQUEST['_wp_original_http_referer'], false );
 	return false;
 }
 
@@ -1763,83 +1782,133 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 }
 
 /**
+ * Retrieve list of mime types and file extensions.
+ *
+ * @since 3.5.0
+ *
+ * @uses apply_filters() Calls 'mime_types' on returned array. This filter should
+ * be used to add types, not remove them. To remove types use the upload_mimes filter.
+ *
+ * @return array Array of mime types keyed by the file extension regex corresponding to those types.
+ */
+function wp_get_mime_types() {
+	// Accepted MIME types are set here as PCRE unless provided.
+	return apply_filters( 'mime_types', array(
+	// Image formats
+	'jpg|jpeg|jpe' => 'image/jpeg',
+	'gif' => 'image/gif',
+	'png' => 'image/png',
+	'bmp' => 'image/bmp',
+	'tif|tiff' => 'image/tiff',
+	'ico' => 'image/x-icon',
+	// Video formats
+	'asf|asx' => 'video/x-ms-asf',
+	'wmv' => 'video/x-ms-wmv',
+	'wmx' => 'video/x-ms-wmx',
+	'wm' => 'video/x-ms-wm',
+	'avi' => 'video/avi',
+	'divx' => 'video/divx',
+	'flv' => 'video/x-flv',
+	'mov|qt' => 'video/quicktime',
+	'mpeg|mpg|mpe' => 'video/mpeg',
+	'mp4|m4v' => 'video/mp4',
+	'ogv' => 'video/ogg',
+	'webm' => 'video/webm',
+	'mkv' => 'video/x-matroska',
+	// Text formats
+	'txt|asc|c|cc|h' => 'text/plain',
+	'csv' => 'text/csv',
+	'tsv' => 'text/tab-separated-values',
+	'ics' => 'text/calendar',
+	'rtx' => 'text/richtext',
+	'css' => 'text/css',
+	'htm|html' => 'text/html',
+	// Audio formats
+	'mp3|m4a|m4b' => 'audio/mpeg',
+	'ra|ram' => 'audio/x-realaudio',
+	'wav' => 'audio/wav',
+	'ogg|oga' => 'audio/ogg',
+	'mid|midi' => 'audio/midi',
+	'wma' => 'audio/x-ms-wma',
+	'wax' => 'audio/x-ms-wax',
+	'mka' => 'audio/x-matroska',
+	// Misc application formats
+	'rtf' => 'application/rtf',
+	'js' => 'application/javascript',
+	'pdf' => 'application/pdf',
+	'swf' => 'application/x-shockwave-flash',
+	'class' => 'application/java',
+	'tar' => 'application/x-tar',
+	'zip' => 'application/zip',
+	'gz|gzip' => 'application/x-gzip',
+	'rar' => 'application/rar',
+	'7z' => 'application/x-7z-compressed',
+	'exe' => 'application/x-msdownload',
+	// MS Office formats
+	'doc' => 'application/msword',
+	'pot|pps|ppt' => 'application/vnd.ms-powerpoint',
+	'wri' => 'application/vnd.ms-write',
+	'xla|xls|xlt|xlw' => 'application/vnd.ms-excel',
+	'mdb' => 'application/vnd.ms-access',
+	'mpp' => 'application/vnd.ms-project',
+	'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+	'docm' => 'application/vnd.ms-word.document.macroEnabled.12',
+	'dotx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
+	'dotm' => 'application/vnd.ms-word.template.macroEnabled.12',
+	'xlsx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+	'xlsm' => 'application/vnd.ms-excel.sheet.macroEnabled.12',
+	'xlsb' => 'application/vnd.ms-excel.sheet.binary.macroEnabled.12',
+	'xltx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+	'xltm' => 'application/vnd.ms-excel.template.macroEnabled.12',
+	'xlam' => 'application/vnd.ms-excel.addin.macroEnabled.12',
+	'pptx' => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+	'pptm' => 'application/vnd.ms-powerpoint.presentation.macroEnabled.12',
+	'ppsx' => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+	'ppsm' => 'application/vnd.ms-powerpoint.slideshow.macroEnabled.12',
+	'potx' => 'application/vnd.openxmlformats-officedocument.presentationml.template',
+	'potm' => 'application/vnd.ms-powerpoint.template.macroEnabled.12',
+	'ppam' => 'application/vnd.ms-powerpoint.addin.macroEnabled.12',
+	'sldx' => 'application/vnd.openxmlformats-officedocument.presentationml.slide',
+	'sldm' => 'application/vnd.ms-powerpoint.slide.macroEnabled.12',
+	'onetoc|onetoc2|onetmp|onepkg' => 'application/onenote',
+	// OpenOffice formats
+	'odt' => 'application/vnd.oasis.opendocument.text',
+	'odp' => 'application/vnd.oasis.opendocument.presentation',
+	'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
+	'odg' => 'application/vnd.oasis.opendocument.graphics',
+	'odc' => 'application/vnd.oasis.opendocument.chart',
+	'odb' => 'application/vnd.oasis.opendocument.database',
+	'odf' => 'application/vnd.oasis.opendocument.formula',
+	// WordPerfect formats
+	'wp|wpd' => 'application/wordperfect',
+	// iWork formats
+	'key' => 'application/vnd.apple.keynote',
+	'numbers' => 'application/vnd.apple.numbers',
+	'pages' => 'application/vnd.apple.pages',
+	) );
+}
+/**
  * Retrieve list of allowed mime types and file extensions.
  *
  * @since 2.8.6
  *
+ * @uses apply_filters() Calls 'upload_mimes' on returned array
+ * @uses wp_get_upload_mime_types() to fetch the list of mime types
+ *
+ * @param int|WP_User $user Optional. User to check. Defaults to current user.
  * @return array Array of mime types keyed by the file extension regex corresponding to those types.
  */
-function get_allowed_mime_types() {
-	static $mimes = false;
+function get_allowed_mime_types( $user = null ) {
+	$t = wp_get_mime_types();
 
-	if ( !$mimes ) {
-		// Accepted MIME types are set here as PCRE unless provided.
-		$mimes = apply_filters( 'upload_mimes', array(
-		'jpg|jpeg|jpe' => 'image/jpeg',
-		'gif' => 'image/gif',
-		'png' => 'image/png',
-		'bmp' => 'image/bmp',
-		'tif|tiff' => 'image/tiff',
-		'ico' => 'image/x-icon',
-		'asf|asx|wax|wmv|wmx' => 'video/asf',
-		'avi' => 'video/avi',
-		'divx' => 'video/divx',
-		'flv' => 'video/x-flv',
-		'mov|qt' => 'video/quicktime',
-		'mpeg|mpg|mpe' => 'video/mpeg',
-		'txt|asc|c|cc|h' => 'text/plain',
-		'csv' => 'text/csv',
-		'tsv' => 'text/tab-separated-values',
-		'ics' => 'text/calendar',
-		'rtx' => 'text/richtext',
-		'css' => 'text/css',
-		'htm|html' => 'text/html',
-		'mp3|m4a|m4b' => 'audio/mpeg',
-		'mp4|m4v' => 'video/mp4',
-		'ra|ram' => 'audio/x-realaudio',
-		'wav' => 'audio/wav',
-		'ogg|oga' => 'audio/ogg',
-		'ogv' => 'video/ogg',
-		'mid|midi' => 'audio/midi',
-		'wma' => 'audio/wma',
-		'mka' => 'audio/x-matroska',
-		'mkv' => 'video/x-matroska',
-		'rtf' => 'application/rtf',
-		'js' => 'application/javascript',
-		'pdf' => 'application/pdf',
-		'doc|docx' => 'application/msword',
-		'pot|pps|ppt|pptx|ppam|pptm|sldm|ppsm|potm' => 'application/vnd.ms-powerpoint',
-		'wri' => 'application/vnd.ms-write',
-		'xla|xls|xlsx|xlt|xlw|xlam|xlsb|xlsm|xltm' => 'application/vnd.ms-excel',
-		'mdb' => 'application/vnd.ms-access',
-		'mpp' => 'application/vnd.ms-project',
-		'docm|dotm' => 'application/vnd.ms-word',
-		'pptx|sldx|ppsx|potx' => 'application/vnd.openxmlformats-officedocument.presentationml',
-		'xlsx|xltx' => 'application/vnd.openxmlformats-officedocument.spreadsheetml',
-		'docx|dotx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml',
-		'onetoc|onetoc2|onetmp|onepkg' => 'application/onenote',
-		'swf' => 'application/x-shockwave-flash',
-		'class' => 'application/java',
-		'tar' => 'application/x-tar',
-		'zip' => 'application/zip',
-		'gz|gzip' => 'application/x-gzip',
-		'rar' => 'application/rar',
-		'7z' => 'application/x-7z-compressed',
-		'exe' => 'application/x-msdownload',
-		// openoffice formats
-		'odt' => 'application/vnd.oasis.opendocument.text',
-		'odp' => 'application/vnd.oasis.opendocument.presentation',
-		'ods' => 'application/vnd.oasis.opendocument.spreadsheet',
-		'odg' => 'application/vnd.oasis.opendocument.graphics',
-		'odc' => 'application/vnd.oasis.opendocument.chart',
-		'odb' => 'application/vnd.oasis.opendocument.database',
-		'odf' => 'application/vnd.oasis.opendocument.formula',
-		// wordperfect formats
-		'wp|wpd' => 'application/wordperfect',
-		) );
-	}
+	unset( $t['swf'], $t['exe'] );
+	if ( function_exists( 'current_user_can' ) )
+		$unfiltered = $user ? user_can( $user, 'unfiltered_html' ) : current_user_can( 'unfiltered_html' );
 
-	return $mimes;
+	if ( empty( $unfiltered ) )
+		unset( $t['htm|html'] );
+
+	return apply_filters( 'upload_mimes', $t, $user );
 }
 
 /**

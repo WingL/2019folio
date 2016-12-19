@@ -1,0 +1,3 @@
+CNOOC Redesign(2011)
+2
+The redesign page layout device by top and bottom two part. The part at the top has navigation and banner section. There are four columns at the bottom part. Three on the left are the same wide. That will be more easier to find section and look at contents in the first page.It is chozen a deep gradient blue as who website background. It avoids the problem with pattern cut off and looks like more professional.

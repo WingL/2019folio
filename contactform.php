@@ -6,7 +6,7 @@
 <script type="text/javascript">
 
 function delayer(){
-    window.location = "contactme.php"
+    window.location = "contactme"
 }
 
 </script>

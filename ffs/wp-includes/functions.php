@@ -242,9 +242,10 @@ function maybe_unserialize( $original ) {
  * @since 2.0.5
  *
  * @param mixed $data Value to check to see if was serialized.
+ * @param bool $strict Optional. Whether to be strict about the end of the string. Defaults true.
  * @return bool False if not serialized and true if it was.
  */
-function is_serialized( $data ) {
+function is_serialized( $data, $strict = true ) {
 	// if it isn't a string, it isn't serialized
 	if ( ! is_string( $data ) )
 		return false;
@@ -256,21 +257,39 @@ function is_serialized( $data ) {
 		return false;
 	if ( ':' !== $data[1] )
 		return false;
-	$lastc = $data[$length-1];
-	if ( ';' !== $lastc && '}' !== $lastc )
-		return false;
+	if ( $strict ) {
+		$lastc = $data[ $length - 1 ];
+		if ( ';' !== $lastc && '}' !== $lastc )
+			return false;
+	} else {
+		$semicolon = strpos( $data, ';' );
+		$brace     = strpos( $data, '}' );
+		// Either ; or } must exist.
+		if ( false === $semicolon && false === $brace )
+			return false;
+		// But neither must be in the first X characters.
+		if ( false !== $semicolon && $semicolon < 3 )
+			return false;
+		if ( false !== $brace && $brace < 4 )
+			return false;
+	}
 	$token = $data[0];
 	switch ( $token ) {
 		case 's' :
-			if ( '"' !== $data[$length-2] )
+			if ( $strict ) {
+				if ( '"' !== $data[ $length - 2 ] )
+					return false;
+			} elseif ( false === strpos( $data, '"' ) ) {
 				return false;
+			}
 		case 'a' :
 		case 'O' :
 			return (bool) preg_match( "/^{$token}:[0-9]+:/s", $data );
 		case 'b' :
 		case 'i' :
 		case 'd' :
-			return (bool) preg_match( "/^{$token}:[0-9.E-]+;\$/", $data );
+			$end = $strict ? '$' : '';
+			return (bool) preg_match( "/^{$token}:[0-9.E-]+;$end/", $data );
 	}
 	return false;
 }
@@ -317,7 +336,7 @@ function maybe_serialize( $data ) {
 
 	// Double serialization is required for backward compatibility.
 	// See http://core.trac.wordpress.org/ticket/12930
-	if ( is_serialized( $data ) )
+	if ( is_serialized( $data, false ) )
 		return serialize( $data );
 
 	return $data;
@@ -1282,7 +1301,7 @@ function wp_get_referer() {
 		$ref = $_SERVER['HTTP_REFERER'];
 
 	if ( $ref && $ref !== $_SERVER['REQUEST_URI'] )
-		return $ref;
+		return wp_validate_redirect( $ref, false );
 	return false;
 }
 
@@ -1297,7 +1316,7 @@ function wp_get_referer() {
  */
 function wp_get_original_referer() {
 	if ( !empty( $_REQUEST['_wp_original_http_referer'] ) )
-		return $_REQUEST['_wp_original_http_referer'];
+		return wp_validate_redirect( $_REQUEST['_wp_original_http_referer'], false );
 	return false;
 }
 
@@ -1891,7 +1910,10 @@ function wp_get_mime_types() {
 	'tif|tiff' => 'image/tiff',
 	'ico' => 'image/x-icon',
 	// Video formats
-	'asf|asx|wax|wmv|wmx' => 'video/asf',
+	'asf|asx' => 'video/x-ms-asf',
+	'wmv' => 'video/x-ms-wmv',
+	'wmx' => 'video/x-ms-wmx',
+	'wm' => 'video/x-ms-wm',
 	'avi' => 'video/avi',
 	'divx' => 'video/divx',
 	'flv' => 'video/x-flv',
@@ -1899,6 +1921,7 @@ function wp_get_mime_types() {
 	'mpeg|mpg|mpe' => 'video/mpeg',
 	'mp4|m4v' => 'video/mp4',
 	'ogv' => 'video/ogg',
+	'webm' => 'video/webm',
 	'mkv' => 'video/x-matroska',
 	// Text formats
 	'txt|asc|c|cc|h' => 'text/plain',
@@ -1914,7 +1937,8 @@ function wp_get_mime_types() {
 	'wav' => 'audio/wav',
 	'ogg|oga' => 'audio/ogg',
 	'mid|midi' => 'audio/midi',
-	'wma' => 'audio/wma',
+	'wma' => 'audio/x-ms-wma',
+	'wax' => 'audio/x-ms-wax',
 	'mka' => 'audio/x-matroska',
 	// Misc application formats
 	'rtf' => 'application/rtf',
@@ -1965,6 +1989,10 @@ function wp_get_mime_types() {
 	'odf' => 'application/vnd.oasis.opendocument.formula',
 	// WordPerfect formats
 	'wp|wpd' => 'application/wordperfect',
+	// iWork formats
+	'key' => 'application/vnd.apple.keynote',
+	'numbers' => 'application/vnd.apple.numbers',
+	'pages' => 'application/vnd.apple.pages',
 	) );
 }
 /**
@@ -1975,10 +2003,20 @@ function wp_get_mime_types() {
  * @uses apply_filters() Calls 'upload_mimes' on returned array
  * @uses wp_get_upload_mime_types() to fetch the list of mime types
  *
+ * @param int|WP_User $user Optional. User to check. Defaults to current user.
  * @return array Array of mime types keyed by the file extension regex corresponding to those types.
  */
-function get_allowed_mime_types() {
-	return apply_filters( 'upload_mimes', wp_get_mime_types() );
+function get_allowed_mime_types( $user = null ) {
+	$t = wp_get_mime_types();
+
+	unset( $t['swf'], $t['exe'] );
+	if ( function_exists( 'current_user_can' ) )
+		$unfiltered = $user ? user_can( $user, 'unfiltered_html' ) : current_user_can( 'unfiltered_html' );
+
+	if ( empty( $unfiltered ) )
+		unset( $t['htm|html'] );
+
+	return apply_filters( 'upload_mimes', $t, $user );
 }
 
 /**
