@@ -2,17 +2,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Lun Wing Deisgn | Web and Graphic Designer</title>
+<meta name="description" content="Lun Wing Design">
+<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane">
+<meta name="author" content="Ying Lun">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-<link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+<title>
+Lun Wing Design
+</title>
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
 <link rel="icon" type="image/png" href="img/favicon.ico">
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="style.css">
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script src="js/jquery.event.move.js" type="text/javascript"></script>
-<script src="js/jquery.twentytwenty.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/twentytwenty.css" type="text/css" media="screen" />
+
+
+
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.jticker.js"></script>
 
 
 <?php $filename = basename($_SERVER['PHP_SELF']);

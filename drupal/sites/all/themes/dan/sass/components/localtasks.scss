@@ -1,0 +1,133 @@
+/**
+ * @file
+ * Localtasks
+ */
+
+@import "init";
+
+/**
+ * Tabs.
+ */
+
+.tabs {
+  li {
+    list-style: none;
+  }
+}
+
+/* Basic positioning styles shared by primary and secondary tabs. */
+%tabs {
+  @include clearfix;
+  @include background-image(linear-gradient(bottom, $tabs-border 1px, transparent 1px));
+  /* IE 9 and earlier don't understand gradients. */
+  list-style: none !important;
+  border-bottom: 1px solid $tabs-border \0/ie;
+  margin: rhythm(1) 0;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+%tabs__tab {
+  float: left; /* LTR */
+  margin: 0 3px;
+}
+
+%tabs__tab-link {
+  display: block;
+  @include adjust-leading-to(1);
+  text-decoration: none;
+}
+
+/* Primary tabs. */
+.tabs-primary {
+  @extend %tabs;
+  font-size: .9em;
+}
+
+.tabs-primary__tab {
+  @extend %tabs__tab;
+  border: 1px solid $tabs-border;
+  border-bottom-color: transparent;
+  /* IE 9 and earlier don't understand gradients. */
+  border-bottom: 0 \0/ie;
+}
+
+.tabs-primary__tab.is-active {
+  @extend .tabs-primary__tab;
+  border-bottom-color: $tabs-container-bg;
+}
+
+// We use 3 placeholder styles to prevent @extend from going selector crazy.
+%tabs-primary__tab-link {
+  @extend %tabs__tab-link;
+  color: $white;
+  background-color: $blue;
+  letter-spacing: 1px;
+  padding: 0 1em;
+  text-align: center;
+}
+
+//%tabs-primary__tab-link-is-hover {
+//  background-color: $grey;
+//  border-color: $grey;
+//}
+
+%tabs-primary__tab-link-is-active {
+  background-color: $dark-blue;
+  border-color: $dark-blue;
+}
+
+a.tabs-primary__tab-link {
+  @extend %tabs-primary__tab-link;
+
+//  &:hover,
+//  &:focus {
+//    @extend %tabs-primary__tab-link-is-hover;
+//  }
+  &:active {
+    @extend %tabs-primary__tab-link-is-active;
+  }
+}
+a.tabs-primary__tab-link.is-active {
+  @extend %tabs-primary__tab-link;
+  @extend %tabs-primary__tab-link-is-active;
+}
+
+/* Secondary tabs. */
+.tabs-secondary {
+  @extend %tabs;
+  font-size: .9em;
+  /* Collapse bottom margin of ul.primary. */
+  margin-top: -(rhythm(1));
+}
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  @extend %tabs__tab;
+  margin: rhythm(1)/2 3px;
+}
+
+// We use 3 placeholder styles to prevent @extend from going selector crazy.
+%tabs-secondary__tab-link {
+  @extend %tabs__tab-link;
+  background-color: darken($blue, 5%);
+  color: $white;
+  padding: 0 .5em;
+}
+%tabs-secondary__tab-link-is-focus {
+}
+%tabs-secondary__tab-link-is-active {
+  background-color: darken($dark-blue, 5%);
+}
+
+a.tabs-secondary__tab-link {
+  @extend %tabs-secondary__tab-link;
+
+  &:hover,
+  &:active {
+    @extend %tabs-secondary__tab-link-is-active;
+  }
+}
+a.tabs-secondary__tab-link.is-active {
+  @extend %tabs-secondary__tab-link;
+  @extend %tabs-secondary__tab-link-is-active;
+}

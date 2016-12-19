@@ -1,0 +1,43 @@
+/**
+ * @file
+ * Node Styling
+ *
+ * Style anything that isn't in the $content variable.
+ */
+
+@import "init";
+
+
+.node { /* Node wrapper */
+
+  .submitted {
+    color: $grey;
+    .user-picture img {
+      float: right;
+    }
+  }
+
+  .content { /* Node's content wrapper */
+  }
+
+  ul.links { /* Node links. See also the ul.links declaration in the pages.css. */
+    font-size: .8em;
+    li {
+      padding: 0 .4em;
+    }
+  }
+}
+
+.node-teaser { /* A node displayed as teaser */
+  border-bottom: 2px solid $blue;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+}
+
+.node-unpublished { /* Unpublished nodes */
+  /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
+
+  p.unpublished { /* The word "Unpublished" displayed underneath the content. */
+    @include unpublished-div;
+  }
+}

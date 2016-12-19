@@ -1,0 +1,234 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-image:url(img/bg.png);
+	background-repeat:no-repeat;
+	margin:0px;
+}
+
+ul{
+	padding:0px;
+	margin:0px;
+}
+
+#logo{
+	position:fixed;
+	top:0px;
+	left:80px;
+	margin-top:0px;
+	opacity:0.8;
+}
+	
+
+/* Vertical Mega Menu Styles */
+#mega-1{
+	position:fixed;
+	left:120px;
+	top:200px;
+	margin:0px;
+}
+.mega-menu{
+font: bold 13px Arial, sans-serif;
+line-height: 16px;
+position: relative; /* Required */
+list-style:none;
+width:70px;
+}
+.mega-menu li a {
+display: block;
+color: #fff;
+margin-bottom:20px;
+list-style:none;
+}
+.mega-menu li a:hover, .mega-menu li.mega-hover a {
+background:none;
+color: #fff;
+border-right: 1px solid #4b4b4b;
+}
+.mega-menu li a.dc-mega {
+position: relative;
+}
+/* Add arrow icon to parent links */
+
+/* Mega menu container */
+.mega-menu li .sub-container {
+position: absolute; /* Required */
+background: #000;
+opacity:0.7;
+overflow:visible;
+border-left: none;
+width:150px;
+list-style:none;
+padding:0 3px 3px 5px;
+}
+.mega-menu li .sub .row {
+width: 100%; overflow: hidden; /* Clear floats */
+}
+.mega-menu li .sub li {
+float: none;
+width: 150px;
+font-size: 1em;
+font-weight: normal;
+list-style:none;
+}
+.mega-menu li .sub li.mega-hdr {
+margin-left: 0px;
+}
+.mega-menu li .sub a, .mega-menu.left li .sub a {
+background: none;
+border: none;
+text-shadow: none;
+float: none;
+color: #fff;
+padding: 7px 10px;
+display: block;
+text-decoration: none;
+font-size: 0.9em;
+}
+.mega-menu li .sub li.mega-hdr a.mega-hdr-a {
+/*padding: 5px 5px 5px 1px;*/
+margin-bottom: 5px;
+background:#F60;
+text-transform: uppercase;
+font-weight: bold;
+color: #fff;
+text-shadow: 1px 1px 1px #333;
+left:2px;
+}
+.mega-menu li .sub li.mega-hdr a.mega-hdr-a:hover {
+color: #000;
+text-shadow: none;
+}
+.mega-menu .sub li.mega-hdr li a {
+padding: 4px 5px 4px 3px;
+font-weight: normal;
+}
+.mega-menu .sub li.mega-hdr li a:hover {
+color:#09F;
+}
+.mega-menu .sub ul li {
+padding-right: 0;
+}
+/* Styling for menu items with only 2 levels */
+.mega-menu li .sub-container.non-mega .sub {
+/*padding: 10px;*/}
+.mega-menu li .sub-container.non-mega li {
+padding: 0;
+margin: 0;
+width: 150px;
+}
+.mega-menu li .sub-container.non-mega li a {
+padding: 7px 5px 7px 22px;
+}
+.mega-menu li .sub-container.non-mega li a:hover {
+color: #a32403;
+}
+
+
+#content{
+	position: absolute;
+	left:530px;
+	top:189px;
+	height:378px;
+	width:634px;
+}
+
+
+
+/*Homepage*/
+#prev{
+	position:absolute;
+	top:150px;
+	left:10px;
+	z-index:10;
+	float:left;
+}
+
+#next{
+	position:absolute;
+	top:150px;
+	right:10px;
+	z-index:10;
+	float:rihgt;
+}
+
+.slider{
+	height:378px;
+	width:630px;
+	top:0px;
+	margin-left:4px;
+	
+}
+
+.slider img{
+	height:378px;
+	width:630px;
+}
+
+.textcontainer{
+	height:375px;
+	width:630px;
+	top:0px;
+	padding-left:10px;
+	color:#fff;
+	font-family:"Comic Sans MS", cursive;
+	font-size:14px;
+}
+
+<!--scrollbar-->
+#scrollbar1 { 
+	position: absolute;
+	left:530px;
+	top:189px;
+	width: 700px; 
+	clear: both;
+	margin: 20px 0 10px; 
+	}
+	
+#scrollbar1 .viewport { 
+	width: 700px;
+	height: 375px; 
+	overflow: hidden; 
+	position: relative; 
+	}
+	
+#scrollbar1 .textcontainer { 
+	list-style: none; 
+	position: absolute; 
+	left: 0; 
+	top: 2; 
+	}
+#scrollbar1 .scrollbar{ 
+	background:url(img/scrollbar2.png) no-repeat 0 0;
+	position: relative; 
+	background-position:4px 0;
+	px 0; 
+	float: right; width: 15px; 
+	}
+#scrollbar1 .track {
+	background: transparenturl(img/scrollbar2.png) no-repeat 0 100%; 
+	height: 100%;
+	width:13px;
+	position: relative;
+	padding: 0 1px; 
+	}
+#scrollbar1 .thumb { 
+	background:url(img/scrollbar.png) no-repeat 50% 100%; 
+	height: 20px; 
+	width: 25px; 
+	cursor: pointer; 
+	overflow: hidden; 
+	position: absolute; 
+	top: 0; 
+	left: -5px; 
+	}
+#scrollbar1 .thumb .end { 
+	background: url(img/scrollbar.png) no-repeat 50% 0;
+	overflow: hidden;
+	height: 5px;
+	width: 25px; 
+	}
+#scrollbar1 .disable { 
+	display: none;
+	}

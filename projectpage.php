@@ -2,13 +2,8 @@
 
 <?php 
 $path = $_SERVER["QUERY_STRING"];
-$extention = array("jpg","png");$img = "$path/main.jpg";
-$img_after = ("$path/after.jpg");
+$img = "$path/main.jpg";
 $info = "$path/info.txt";
-$use_2020 = file_exists($img_after);
-if ($use_2020) {
-	$img = "$path/before.jpg";
-}
 ?>
 
  <?php $fo = fopen($info,'r');
@@ -46,21 +41,9 @@ fclose($fo);?>
 <div class="row">
 
 	<div class="col-sm-8">    
-		
+		<div id="category"> </div>   
         
-		<div id="mainpic">
-		  <img src="<?php echo $img?>" alt="">
-		  <?php
-		    if ($use_2020) {
-	      ?>
-			 <img src="<?php echo $img_after ?>" alt="">
-			 <script type="text/javascript">
-				$(window).load(function(){
-					$("#mainpic").twentytwenty();
-				});
-			 </script>
-	  	  <?php } ?>  
-		</div>
+		<div id="mainpic"> <img src="<?php echo $img?>" alt=""> </div>
 		
         <div class="spacer">&nbsp;</div>
 	</div>

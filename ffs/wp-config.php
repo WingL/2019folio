@@ -19,11 +19,10 @@
 define('DB_NAME', 'lunwingc_ffs');
 
 /** MySQL database username */
-//define('DB_USER', 'cpses_luoawGbeQt');
-define('DB_USER', 'lunwingc_php');
+define('DB_USER', 'lunwingc');
 
 /** MySQL database password */
-define('DB_PASSWORD', '8dWmstNgpTN6');
+define('DB_PASSWORD', 'APaUP#[}-VOr');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

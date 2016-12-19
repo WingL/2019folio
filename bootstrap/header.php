@@ -9,9 +9,9 @@
 <title>
 Lun Wing Design
 </title>
-<link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
 <link rel="icon" type="image/png" href="img/favicon.ico">
-<link href='//fonts.googleapis.com/css?family=Questrial|Montserrat|Varela' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Questrial|Montserrat|Varela' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
 

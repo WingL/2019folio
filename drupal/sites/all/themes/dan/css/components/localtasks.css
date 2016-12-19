@@ -1,0 +1,91 @@
+/**
+ * @file
+ * Localtasks
+ */
+/**
+ * Tabs.
+ */
+.tabs li {
+  list-style: none;
+}
+
+/* Basic positioning styles shared by primary and secondary tabs. */
+.tabs-primary, .tabs-secondary {
+  overflow: hidden;
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(100%, #009ee1), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(bottom, #009ee1 1px, transparent 1px);
+  background-image: -moz-linear-gradient(bottom, #009ee1 1px, transparent 1px);
+  background-image: -o-linear-gradient(bottom, #009ee1 1px, transparent 1px);
+  background-image: -ms-linear-gradient(bottom, #009ee1 1px, transparent 1px);
+  background-image: linear-gradient(bottom, #009ee1 1px, transparent 1px);
+  /* IE 9 and earlier don't understand gradients. */
+  list-style: none !important;
+  border-bottom: 1px solid #009ee1 \0/ie;
+  margin: 1.5em 0;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+.tabs-primary__tab, .tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  float: left;
+  /* LTR */
+  margin: 0 3px;
+}
+
+a.tabs-primary__tab-link, a.tabs-secondary__tab-link {
+  display: block;
+  line-height: 1.5em;
+  text-decoration: none;
+}
+
+/* Primary tabs. */
+.tabs-primary {
+  font-size: .9em;
+}
+
+.tabs-primary__tab, .tabs-primary__tab.is-active {
+  border: 1px solid #009ee1;
+  border-bottom-color: transparent;
+  /* IE 9 and earlier don't understand gradients. */
+  border-bottom: 0 \0/ie;
+}
+
+.is-active.tabs-primary__tab {
+  border-bottom-color: #006b99;
+}
+
+a.tabs-primary__tab-link, a.tabs-primary__tab-link.is-active {
+  color: white;
+  background-color: #009ee1;
+  letter-spacing: 1px;
+  padding: 0 1em;
+  text-align: center;
+}
+
+a.tabs-primary__tab-link:active, a.tabs-primary__tab-link.is-active {
+  background-color: #006b99;
+  border-color: #006b99;
+}
+
+/* Secondary tabs. */
+.tabs-secondary {
+  font-size: .9em;
+  /* Collapse bottom margin of ul.primary. */
+  margin-top: -1.5em;
+}
+
+.tabs-secondary__tab,
+.tabs-secondary__tab.is-active {
+  margin: 0.75em 3px;
+}
+
+a.tabs-secondary__tab-link, a.tabs-secondary__tab-link.is-active {
+  background-color: #008cc8;
+  color: white;
+  padding: 0 .5em;
+}
+
+a.tabs-secondary__tab-link:hover, a.tabs-secondary__tab-link:active, a.tabs-secondary__tab-link.is-active {
+  background-color: #005980;
+}
