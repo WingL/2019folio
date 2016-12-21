@@ -1,4 +1,5 @@
 </div><!--end outerWrapper div (starts at the header.php file)-->
+</div>
 
 <div id="footer_container" class="container">
 <footer>

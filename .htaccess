@@ -26,9 +26,9 @@ SetEnv TZ Australia/Brisbane
 RewriteCond %;{REQUEST_URI} !(\.[^./]+)$
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule (.*) /$1.php [L]
+RewriteRule (.*) $1.php [L]
 
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+\.)+php\ HTTP
 RewriteCond %{REQUEST_METHOD} ^GET$
-RewriteRule ^(.+)\.php$ /$1 [R=301,L]
+RewriteRule ^(.+)\.php$ $1 [R=301,L]
 

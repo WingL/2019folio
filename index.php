@@ -10,44 +10,31 @@
 
 <link href="//getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
 <link rel="icon" type="image/png" href="img/favicon.ico">
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" media="all" href="style.css">
-
-
-
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script src="js/jquery.event.move.js" type="text/javascript"></script>
+<!-- <script src="js/jquery.event.move.js" type="text/javascript"></script> -->
 <script src="js/jquery.twentytwenty.js" type="text/javascript"></script>
 <link rel="stylesheet" href="css/twentytwenty.css" type="text/css" media="screen" />
-
-
+<script type="text/javascript" src="js/index.js"></script>
 <?php $filename = basename($_SERVER['PHP_SELF']);
 $pagename = substr($filename,0,-4);
 ?>
-
-<style type="text/css">
-html{
-background:url('http://www.lunwing.com/img/SAM3.jpg') center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}	 
-</style>  
-     
 </head>
 
+<body id="indexbody">
 
-<body>
-
-<header>
+<header id="indexheader">
+    
+<div class="header">
 <div class="container">
 <div class="row">
-
-<div id="logo" class="col-xs-2 col-sm-2 col-md-2"><a href="index"><img src="img/logo_big.gif" alt="lunwing.com"></div></a>
-<div id="name" class="col-xs-2 col-sm-2 col-md-2"><a href="http://au.linkedin.com/pub/ying-lun/64/b59/aba" target="_blank" title="LinkedIn">Lun Wing &copy;</a><br/></div>
-
-<div id="menu" class="col-sm-8 col-md-8 col-md-push-4 col-sm-push-4 show-in-big">
+<div id="name" class="col-xs-2 col-sm-2 col-md-2">
+    <a href="index" target="_blank" title="LinkedIn">Lun Wing &copy;</a>
+    <br/>
+    </div>
+<div id="menu" class="col-sm-8 col-md-8 show-in-big">
 <ul class="row">
 <a href="http://blog.lunwing.com"><li class="col-sm-2 col-md-2">Blog</li></a>
 <a href="aboutme"><li class="col-sm-2 col-md-2">About Me</li></a>
@@ -55,7 +42,6 @@ background:url('http://www.lunwing.com/img/SAM3.jpg') center center fixed;
 <a href="contactme"><li class="col-sm-2 col-md-2">Contact Me</li></a>
 </ul>
 </div>
-
 <div id="menu" class="col-xs-6 hidden-in-big">
 <ul class="row">
 <a href="http://blog.lunwing.com"><li class="col-xs-3"><img src="img/blogger.gif"></li></a>
@@ -64,21 +50,24 @@ background:url('http://www.lunwing.com/img/SAM3.jpg') center center fixed;
 <a href="contactme"><li class="col-xs-3"><img src="img/contact.gif"></li></a>
 </ul>
 </div>
-
+</div>
 </div>
 </div><!--container-->
 </header>
+<div id="contentwrap" class="container">
 
-<!-- it worked! -->
-<div id="overlay" class="container col-sm-4 col-md-4 col-md-push-7 col-sm-push-7">
 
-<h1>
-Welcome to LunWing.com.<br/><br/></h1>
 
-<h3>This is Ying's portfolio site.</h3>
+<div class="hello col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
+
+<h1>Visual + Code </h1>
+
+<h3>Portfolio of Ying Lun, graphic and web designer in Brisbane</h3>
 
 
 </div>
 
+</body>
+</html>
 
         
