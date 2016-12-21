@@ -1,10 +1,11 @@
 $(function() {
     $(window).on("scroll", function() {
         if($(window).scrollTop() > 50) {
-            $(".header").toggleClass("active");
-        } else {
-            //remove the background property so it comes transparent again (defined in your css)
-           $(".header").removeClass("active");
+            $("#menu ul li").css("padding","0");
+            $("#name").css("padding","0")
+        } else{
+            $("#menu ul li").css("padding","40px 0 20px 0");
+            $("#name").css("padding","40px 0 20px 0")
         }
     });
 });
