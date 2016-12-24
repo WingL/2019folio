@@ -17,11 +17,14 @@ $pagename = substr($filename,0,-4);
 <body>
     <header>
         <div class="container">
+
             <div class="row">
+
                 <div id="name" class="col-xs-2 col-sm-2 col-md-2">
                     <a href="index">Lun Wing &copy;</a>
                     <br/>
                 </div>
+
                 <div id="menu" class="col-sm-8 col-md-8 show-in-big">
                     <ul class="row">
                         <a href="http://blog.lunwing.com">
@@ -59,8 +62,7 @@ $pagename = substr($filename,0,-4);
         </div>
         <!--container-->
     </header>
-    <!--
+  
     <div id="contentwrap">
-<div class="container">
+
 <!--no closing tags on header for BODY or HTML this is is done in the footer.php-->
-    -->

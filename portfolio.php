@@ -10,6 +10,7 @@
 
 <?php include'header.php'?>
 
+<div class="container">
 <div id="thumbsarea">
 
 <p><strong><span style="font-size:1.5em">nac(nundah activity centre)<br/></span></p>

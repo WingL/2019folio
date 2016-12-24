@@ -74,6 +74,14 @@ $pagename = substr($filename,0,-4);
       <h1>Visual + Code </h1>
       <h3>Portfolio of Ying Lun, graphic and web designer in Brisbane</h3>
     </div>
+
+    <div class="aboutme col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
+    <h2> Who am I?</h2>
+    <p> Hi, I’m Ying Lun. </p>
+    <p>A graphic &#38; web designer living in Logan, Brisbane. </p>
+    <p>Graduate School &#58; CATC Design (Although it is small colleage but I learn a lot)</p>
+    <h2> What I do?</h2>
+    
 </body>
 
 </html>
