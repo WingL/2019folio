@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title> My Portfolio | Lun Wing Design </title>
-<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
-<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
-<meta name="author" content="Ying Lun">
-
-
-<?php include'header.php'?>
-
-<div class="container">
-<div id="thumbsarea">
-
-<p><strong><span style="font-size:1.5em">nac(nundah activity centre)<br/></span></p>
-<?php
+    <meta charset="UTF-8">
+    <title> My Portfolio | Lun Wing Design </title>
+    <meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
+    <meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
+    <meta name="author" content="Ying Lun">
+    <?php include'header.php'?>
+    <div class="container">
+        <div id="thumbsarea">
+            <p><strong><span style="font-size:1.5em">nac(nundah activity centre)<br/></span></p>
+    <div class="thumb">
+    <?php
       $datadir = "projects";
      foreach (glob("$datadir/nac", GLOB_ONLYDIR) as $category_path) {
           $category = basename($category_path);
@@ -36,13 +34,10 @@
 <br/>
 
 
-<p><strong><span style="font-size:1.5em">Web Design<br/></span></strong></p><a 
-href="../niagra"><img src="img/niagra.jpg"></a><a 
-<a href="http://www.lunwing.com/ffs"><img src="img/ffs.jpg"></a>
-
-
-
-<?php
+<p><strong><span style="font-size:1.5em">Web Design<br/></span></strong></p>
+            <a href="../niagra"><img src="img/niagra.jpg"></a>
+            <a <a href="http://www.lunwing.com/ffs"><img src="img/ffs.jpg"></a>
+            <?php
       $datadir = "projects";
      foreach (glob("$datadir/web", GLOB_ONLYDIR) as $category_path) {
           $category = basename($category_path);
@@ -57,9 +52,7 @@ href="../niagra"><img src="img/niagra.jpg"></a><a
       }
 	
     ?>
-
-
-<!--
+                <!--
 <p><strong><span style="font-size:1.5em">Pen Australia<br/></span></p>
 <?php
       $datadir = "projects";
@@ -77,13 +70,9 @@ href="../niagra"><img src="img/niagra.jpg"></a><a
 	
     ?>
 -->
-
-
-<br/>
-<br/>
-
-
-<p><strong><span style="font-size:1.5em">Graphic Design<br/></span></p>
+                <br/>
+                <br/>
+                <p><strong><span style="font-size:1.5em">Graphic Design<br/></span></p>
 
  <?php
 
@@ -113,5 +102,3 @@ href="../niagra"><img src="img/niagra.jpg"></a><a
 
 	
  <?php include'footer.php'?>
-
-       

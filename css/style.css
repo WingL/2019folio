@@ -25,18 +25,7 @@ body {
 }
 
 #indexbody {
-	background: -moz-linear-gradient(323deg, rgba(119, 188, 31, 1) 0%, rgba(119, 188, 31, 1) 1%, rgba(48, 207, 193, 1) 100%);
-	/* ff3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(119, 188, 31, 1)), color-stop(1%, rgba(119, 188, 31, 1)), color-stop(100%, rgba(48, 207, 193, 1)));
-	/* safari4+,chrome */
-	background: -webkit-linear-gradient(323deg, rgba(119, 188, 31, 1) 0%, rgba(119, 188, 31, 1) 1%, rgba(48, 207, 193, 1) 100%);
-	/* safari5.1+,chrome10+ */
-	background: -o-linear-gradient(323deg, rgba(119, 188, 31, 1) 0%, rgba(119, 188, 31, 1) 1%, rgba(48, 207, 193, 1) 100%);
-	/* opera 11.10+ */
-	background: -ms-linear-gradient(323deg, rgba(119, 188, 31, 1) 0%, rgba(119, 188, 31, 1) 1%, rgba(48, 207, 193, 1) 100%);
-	/* ie10+ */
-	background: linear-gradient(127deg, rgba(119, 188, 31, 1) 0%, rgba(119, 188, 31, 1) 1%, rgba(48, 207, 193, 1) 100%);
-	/* w3c */
+	background: none;
 }
 
 #indexheader {
@@ -212,18 +201,133 @@ footer {
 
 
 /*index.php*/
-
-.hello {
-	margin-top: 100px;
+section{
+	width: 100%;
+	height: 100%;
+	min-height: 600px;
+	display:block;
+	text-align:center;
 	color: #454851;
 	font-family: 'Roboto', sans-serif;
-	text-align: center
 }
 
-.hello h1 {
+
+section:nth-child(2){
+background: -moz-linear-gradient(323deg, rgba(119,188,31,1) 0%, rgba(48,207,193,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(119,188,31,1)), color-stop(100%, rgba(48,207,193,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(323deg, rgba(119,188,31,1) 0%, rgba(48,207,193,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(323deg, rgba(119,188,31,1) 0%, rgba(48,207,193,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(323deg, rgba(119,188,31,1) 0%, rgba(48,207,193,1) 100%); /* ie10+ */
+background: linear-gradient(127deg, rgba(119,188,31,1) 0%, rgba(48,207,193,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77BC1F', endColorstr='#30CFC1',GradientType=1 ); /* ie6-9 */
+}
+
+section:nth-child(3){
+background: -moz-linear-gradient(46deg, rgba(107,62,189,0.5) 0%, rgba(48,207,193,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(107,62,189,0.5)), color-stop(100%, rgba(48,207,193,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(46deg, rgba(107,62,189,0.5) 0%, rgba(48,207,193,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(46deg, rgba(107,62,189,0.5) 0%, rgba(48,207,193,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(46deg, rgba(107,62,189,0.5) 0%, rgba(48,207,193,1) 100%); /* ie10+ */
+background: linear-gradient(44deg, rgba(107,62,189,0.5) 0%, rgba(48,207,193,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30CFC1', endColorstr='#6B3EBD',GradientType=0 ); /* ie6-9 */
+}
+
+section:nth-child(4){
+background: -moz-linear-gradient(316deg, rgba(181,158,222,1) 0%, rgba(255,120,120,1) 49%, rgba(255,255,0,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(181,158,222,1)), color-stop(49%, rgba(255,120,120,1)), color-stop(100%, rgba(255,255,0,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(316deg, rgba(181,158,222,1) 0%, rgba(255,120,120,1) 49%, rgba(255,255,0,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(316deg, rgba(181,158,222,1) 0%, rgba(255,120,120,1) 49%, rgba(255,255,0,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(316deg, rgba(181,158,222,1) 0%, rgba(255,120,120,1) 49%, rgba(255,255,0,1) 100%); /* ie10+ */
+background: linear-gradient(134deg, rgba(181,158,222,1) 0%, rgba(255,120,120,1) 49%, rgba(255,255,0,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b59ede', endColorstr='#FFFF00',GradientType=1 ); /* ie6-9 */
+}
+
+section h1{
 	font-weight: 900;
 	font-size: 8em;
 	font-size: 8vw;
+	text-align:center;
+}
+
+
+section p{
+	text-align: left;
+	margin-left:auto;
+	margin-right: auto;
+	max-width: 650px;
+}
+
+.hello {
+	margin-top: 200px;
+}
+
+
+.aboutme {
+	margin-top: 100px;
+	font-size: 1.2em;
+}
+
+.aboutme button{
+	margin: 10px auto;
+	border-radius: 50px;
+	border:2px solid #fff;
+	background: none;
+	padding:5px 20px;
+	font-size: 1.5em;
+	
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#hiremepop {
+	width: 300px;
+	background-color: #FFF;
+	opacity: 0.9;
+	color: #454851;
+	text-align: center;
+	border-radius: 6px;
+	padding: 20px;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	left: 0;
+	margin:auto;
+	display:none;
+}
+
+#hiremepop button{
+	font-size: 1.2em;
+	border-radius: 50px;
+	margin:0;
+	border:2px solid #454851;
+}
+
+.submit:hover{
+	background-color:#454851;
+	color:#fff;
+}
+
+.closebtn{
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 36px;
+	cursor:pointer;
+
+}
+
+.myprogramme {
+	margin-top: 100px;
+	font-size: 1.2em;
 }
 
 

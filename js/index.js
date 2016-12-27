@@ -9,3 +9,15 @@ $(function() {
         }
     });
 });
+
+$(document).ready(function(){
+    console.log("ready");
+    $(".hiremebtn").click(function(){
+        console.log("buttonready");
+        $("#hiremepop").show();
+        
+    });
+    $(".closebtn").click(function(){
+        $("#hiremepop").hide();
+    });
+});
