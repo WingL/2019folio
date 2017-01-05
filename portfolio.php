@@ -1,104 +1,95 @@
-<!DOCTYPE html>
-<html>
+<?php include'head.php' ?>
 
-<head>
-    <meta charset="UTF-8">
-    <title> My Portfolio | Lun Wing Design </title>
-    <meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
-    <meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
-    <meta name="author" content="Ying Lun">
-    <?php include'header.php'?>
-    <div class="container">
-        <div id="thumbsarea">
-            <p><strong><span style="font-size:1.5em">nac(nundah activity centre)<br/></span></p>
-    <div class="thumb">
+<body id="portfolio">
+<?php include'header.php' ?>
+<section>
+    <div class="container" >
+        <div class="thumbsarea">
+            <div class="col-sm-3 col-md-3 col-xs-12">
+                <div class="ratio">
+    <a href="../niagra"><img src="img/niagra.jpg"></a>
+    <a href="http://www.lunwing.com/ffs"><img src="img/ffs.jpg"></a>
+    </div>
+    </div>
+
+
+    <?php
+      $datadir = "projects";
+     foreach (glob("$datadir/web", GLOB_ONLYDIR) as $category_path) {
+          $category = basename($category_path);
+          foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
+              $project = basename($project_path);
+              if (file_exists ("thumb.png") ){
+              $thumb = "thumb.png";}
+              else{
+                $thumb="thumb.jpg";
+              }
+			
+
+			 echo '<a href="projectpage?'."$project_path".'" alt="" class="col-sm-3 col-md-3 col-xs-12">
+             <div class="ratio" >
+             <img src="'."$project_path/$thumb".'" alt="">
+             </div>
+             </a>'; 
+          }
+      }	
+     ?>
+    </div>
+    </div>
+    </section>
+
+<section>
+    <div class="container" >
+        <div class="thumbsarea">
     <?php
       $datadir = "projects";
      foreach (glob("$datadir/nac", GLOB_ONLYDIR) as $category_path) {
           $category = basename($category_path);
           foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
               $project = basename($project_path);
-              	$thumb = "thumb.jpg";
+              	$thumb = "thumb.png";
 			
 
-			 echo '<a href="projectpage?'."$project_path".'" alt=""><img src="'."$project_path/$thumb".'" alt=""></a>';
+			 echo '<a href="projectpage?'."$project_path".'" alt="" class="col-sm-3 col-md-3 col-xs-12">
+             <div class="ratio" >
+             <img src="'."$project_path/$thumb".'" alt="">
+             </div>
+             </a>';
 			 
           }
       }
 	
-    ?>    
-   
-
-
-<br/>
-<br/>
-
-
-<p><strong><span style="font-size:1.5em">Web Design<br/></span></strong></p>
-            <a href="../niagra"><img src="img/niagra.jpg"></a>
-            <a <a href="http://www.lunwing.com/ffs"><img src="img/ffs.jpg"></a>
-            <?php
+     ?>
+     </div>
+     </div>
+</section>
+<section>
+    <div class="container" >
+        <div class="thumbsarea">
+    <?php
       $datadir = "projects";
-     foreach (glob("$datadir/web", GLOB_ONLYDIR) as $category_path) {
+     foreach (glob("$datadir/graphic", GLOB_ONLYDIR) as $category_path) {
           $category = basename($category_path);
           foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
               $project = basename($project_path);
-              	$thumb = "thumb.jpg";
+              if (file_exists ("thumb.png") ){
+              $thumb = "thumb.png";}
+              else{
+                $thumb="thumb.jpg";
+              }
 			
 
-			 echo '<a href="projectpage?'."$project_path".'" alt=""><img src="'."$project_path/$thumb".'" alt=""></a>';
-			 
+			 echo '<a href="projectpage?'."$project_path".'" alt="" class="col-sm-3 col-md-3 col-xs-12">
+             <div class="ratio" >
+             <img src="'."$project_path/$thumb".'" alt="">
+             </div>
+             </a>'; 
           }
-      }
-	
-    ?>
-                <!--
-<p><strong><span style="font-size:1.5em">Pen Australia<br/></span></p>
-<?php
-      $datadir = "projects";
-     foreach (glob("$datadir/pen_australia", GLOB_ONLYDIR) as $category_path) {
-          $category = basename($category_path);
-          foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
-              $project = basename($project_path);
-              	$thumb = "thumb.jpg";
-			
+      }	
+     ?>
 
-			 echo '<a href="projectpage?'."$project_path".'" alt=""><img src="'."$project_path/$thumb".'" alt=""></a>';
-			 
-          }
-      }
-	
-    ?>
--->
-                <br/>
-                <br/>
-                <p><strong><span style="font-size:1.5em">Graphic Design<br/></span></p>
+     </div>
+     </div>
+</section>
 
- <?php
-
-      $datadir = "projects";
-     foreach (glob("$datadir/graphic_design", GLOB_ONLYDIR) as $category_path) {
-          $category = basename($category_path);
-          foreach (glob("$category_path/*", GLOB_ONLYDIR) as $project_path) {
-              $project = basename($project_path);
-              	$thumb = "thumb.jpg";
-			
-
-			 echo '<a href="projectpage?'."$project_path".'" alt=""><img src="'."$project_path/$thumb".'" alt="" class="thumbs"></a>';
-			 
-          }
-      }
-	
-    ?>
-    
-
-
-
-
-</div>
-
-
-  
-
-	
- <?php include'footer.php'?>
+</body>

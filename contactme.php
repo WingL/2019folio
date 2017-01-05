@@ -1,61 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title> Contact Me | Lun Wing Design </title>
-<meta name="description" content="Lun Wing Design is portfolio site owned by Ying Lun">
-<meta name="keywords" content="Lunwing, Lun Wing, Ying Lun, Web Design, Graphic Design, Brisbane, Brisbane Graphic Design, Springwood Graphic Design, Springwood">
-<meta name="author" content="Ying Lun">
+	<?php include'head.php' ?>
 
-<?php include'header.php'?>
+<body id="contactpage">
+<?php include'header.php' ?>
+
+  
 
 
-
-<div id="contactdetail" class="col-md-6">
- <strong><span style="color:#54284e; font-size:1.3em">My Contact<br/></span></strong><br/>
-
-<p>E-mail:wing@lunwing.com</p>
-<p>Enquiries?</p>
-<p>Need a quote?</p>
-<p>Have a thought of my site?</p>
-<p>Email me or use the contact form on the right!</p>
-
-
-</div>
-
-<div id="contactform" class="col-md-6" >
+<div id="contactform" class="col-md-6 col-md-push-3 col-sm-6 col-sm-3 col-xs-12">
  <strong><span style="color:#54284e; font-size:1.3em">Contact Me<br/></span></strong><br/>
 
 <form name="contact from" method="post" action="contactform.php">
-<div class="col-md-6">
 <table>
-<tr><td><label for="your_name">Your Name</label></td></tr>
+<tr><td><label for="your_name">Your Name</label></td>
+<td><input type="text" name="your_name" maxlength="50" size="30"></td></tr>
 
-<tr><td><input type="text" name="your_name" maxlength="50" size="30"></td></tr>
+<tr><td><label for="your_email">Your Email</label></td>
 
-<tr><td><label for="your_email">Your Email</label></td></tr>
+<td><input type="text" name="email" maxlength="80" size="38"></td></tr>
 
-<tr><td><input type="text" name="email" maxlength="80" size="38"></td></tr>
+<tr><td><label for="about_you">About You</label></td>
 
-<tr><td><label for="about_you">About You</label></td></tr>
+<td><input type="text" name="about_you" maxlength="80" size="38"></td></tr>
 
-<tr><td><input type="text" name="about_you" maxlength="80" size="38"></td></tr>
-
-</table>
-</div>
-
-<div class="col-md-6">
-<table>
 <tr>
 <td><label for="feedback">Tell me What you are thinking</label></td>
-</tr>
- 
-<tr>
 <td><textarea name="feedback" rows="10" cols="33"></textarea></td></tr>
 </table>
 <button type="submit" value="Submit" class="col-md-1 col-md-offset-9">Submit</button>
 
-</div>
 
 </form>
 
@@ -64,6 +36,5 @@
 
 </div>
 
-<div class="spacer">&nbsp;</div>  
-        <?php include'footer.php'?>
-        
+</section>
+</body>

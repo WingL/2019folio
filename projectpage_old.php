@@ -1,22 +1,20 @@
-<?php include'head.php' ?>
 
-<body class="projectpage">
-    <?php include'header.php' ?>
-        <?php  
+	<?php include'header.php' ?>
+		<?php  
 			$path = $_SERVER["QUERY_STRING"];
-			$extention = array("jpg","png");$img = "$path/main.png";
+			$extention = array("jpg","png");$img = "$path/main.jpg";
 			$img_after = ("$path/after.jpg");
 			$info = "$path/info.txt";
 			$use_2020 = file_exists($img_after);
 			if ($use_2020) {
 				$img = "$path/before.jpg";}
 		?>
-        <?php $fo = fopen($info,'r');
+		<?php $fo = fopen($info,'r');
 			$lines = file($info);
 			$id=$lines[1]; 
 			fclose($fo);
 		?>
-        <?php $pre = ($id-1);
+		<?php $pre = ($id-1);
 			function find_project_for_id($find_id) {
 			# the found project ... (empty until we find it)
 			$found_project = "";
@@ -41,55 +39,55 @@
 		return $found_project;
 		}
 		?>
-            <div id="mainpic" class="col-sm-8">
-                <img src="<?php echo $img?>" alt="">
-                <?php
-                    if ($use_2020) {
-                    ?>
-                    <img src="<?php echo $img_after ?>" alt="">
-                    <script type="text/javascript">
-                        $(window).load(function () {
-                            $("#mainpic").twentytwenty();
-                        });
-                    </script>
-                    <?php } ?>
-            </div>
-            <div id="projectinfo" class="col-sm-4">
-                <div id="description">
-                    <h3>
-                        <?php
+	<div id="project" class="row">
+		<div id="mainpic" class="col-sm-8">
+			<img src="<?php echo $img?>" alt="">
+			<?php
+		if ($use_2020) {
+	      ?>
+				<img src="<?php echo $img_after ?>" alt="">
+				<!-- <script type="text/javascript">
+					$(window).load(function () {
+						$("#mainpic").twentytwenty();
+					});
+				</script>
+				<?php } ?> -->
+		</div>
+		<div id="projectinfo" class="col-sm-4">
+
+			<div id="description">
+				<h3>
+					<?php
 						$fo = fopen($info,'r');
 						$lines = file($info);
 						echo $lines[0]; 
 						fclose($fo);
 					?>
-                    </h3>
-                    <div>
-                        <?php $fo = fopen($info,'r');
+				</h3>
+				<div>
+					<?php $fo = fopen($info,'r');
 						echo $lines[2];
 						fclose($fo);
 						?>
-                    </div>
-                </div>
-                <div id="previousproject">
-                    <?php 
+				</div>
+			</div>
+			
+			<div id="previousproject">
+				<?php 
 					if(($id-1)!=0){
 					echo
 					"<a href=\"projectpage.php?" . find_project_for_id($id-1) . "\" alt=\"\">  &lt;&lt; previous project</a>";}	
 					else{
 					echo "no previous project";}
 					?>
-                </div>
-                <div id="nextproject">
-                    <?php 
+					</div>
+					<div id="nextproject">
+						<?php 
 					if(($id+1)!=19){
 					echo
 					"<a href=\"projectpage.php?" . find_project_for_id($id+1) . "\" alt=\"\"> next project &gt;&gt;</a>";}	
 					else{
 					echo "no next project";}
 				?>
-                </div>
-
-</body>
-
-</html>
+			</div>
+		</div>
