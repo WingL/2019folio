@@ -4,22 +4,15 @@
         <!--include "name" & menu -->
         <!-- id=name -->
         <div id="name" class="col-xs-2 col-sm-2 col-md-2">
-          <a href="index" >Lun Wing &copy;</a>
+          <a href="index"><span>Lun. &copy;</span></a>
         </div>
         <!-- end id=name -->
         <!-- id=menu -->
         <!--show in big -->
-        <div id="menu" class="col-sm-8 col-md-8 show-in-big">
-          <ul class="row">
-            <!--blog-->
-            <a href="https://au.linkedin.com/in/lunwing">
-              <li class="col-sm-2 col-md-2">LinkedIn</li>
-            </a>
+        <div id="folio" class="col-xs-2 col-sm-2 col-md-2 show-in-big">
             <!-- porfolio -->
-            <a href="portfolio">
-              <li class="col-sm-2 col-md-2">Portfolio</li>
-            </a>
-
+            <a href="portfolio"><span> Portfolio</span></a>
+        </div>
         <!--end show in big-->
         <!-- show in small-->
         <div id="menu" class="col-xs-6 hidden-in-big">

@@ -4,19 +4,15 @@
     <?php include'header.php' ?>
         <?php  
 			$path = $_SERVER["QUERY_STRING"];
-			$extention = array("jpg","png");$img = "$path/main.png";
-			$img_after = ("$path/after.jpg");
+			$extention = array("jpg","png");
+			$img = "$path/main.png";
 			$info = "$path/info.txt";
-			$use_2020 = file_exists($img_after);
-			if ($use_2020) {
-				$img = "$path/before.jpg";}
-		?>
-        <?php $fo = fopen($info,'r');
+			$fo = fopen($info,'r');
 			$lines = file($info);
 			$id=$lines[1]; 
 			fclose($fo);
-		?>
-        <?php $pre = ($id-1);
+			
+			$pre = ($id-1);
 			function find_project_for_id($find_id) {
 			# the found project ... (empty until we find it)
 			$found_project = "";
@@ -41,18 +37,9 @@
 		return $found_project;
 		}
 		?>
+		<div class="projectdetial">
             <div id="mainpic" class="col-sm-8">
                 <img src="<?php echo $img?>" alt="">
-                <?php
-                    if ($use_2020) {
-                    ?>
-                    <img src="<?php echo $img_after ?>" alt="">
-                    <script type="text/javascript">
-                        $(window).load(function () {
-                            $("#mainpic").twentytwenty();
-                        });
-                    </script>
-                    <?php } ?>
             </div>
             <div id="projectinfo" class="col-sm-4">
                 <div id="description">
@@ -71,22 +58,23 @@
 						?>
                     </div>
                 </div>
+				</div>
                 <div id="previousproject">
                     <?php 
 					if(($id-1)!=0){
 					echo
-					"<a href=\"projectpage.php?" . find_project_for_id($id-1) . "\" alt=\"\">  &lt;&lt; previous project</a>";}	
+					"<a href=\"projectpage.php?" . find_project_for_id($id-1) . "\" alt=\"\"> &#10096</a>";}	
 					else{
-					echo "no previous project";}
+					echo "<span style='color:#353535'>&#10096</span>";}
 					?>
                 </div>
                 <div id="nextproject">
                     <?php 
-					if(($id+1)!=19){
+					if(($id+1)!=10){
 					echo
-					"<a href=\"projectpage.php?" . find_project_for_id($id+1) . "\" alt=\"\"> next project &gt;&gt;</a>";}	
+					"<a href=\"projectpage.php?" . find_project_for_id($id+1) . "\" alt=\"\"> &#10097</a>";}	
 					else{
-					echo "no next project";}
+					echo "<span style='color:#353535'>&#10097</span>";}
 				?>
                 </div>
 

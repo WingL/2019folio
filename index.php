@@ -3,15 +3,20 @@
 <body id="indexbody">
 <?php include'header.php' ?>
   <!--end Header-->
-  <section>
+
+
+  <section id="welcome">
     <div class="container">
       <div class="hello col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
         <h1>Visual + Code </h1>
         <h3>Portfolio of Ying Lun, graphic and web designer in Brisbane</h3>
+        <div class="scroll"><a href="#about">&#10095</a></div>
       </div>
     </div>
   </section>
-  <section>
+<!-- End Welcome Section-->
+
+  <section id="about">
     <div class="container">
       <div class="aboutme col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
         <h1> Who I am?</h1>
@@ -21,12 +26,14 @@
         <p> Currently, I am looking for an oppotunity to work in design&#47;advertising agency. </p>
         <p>I brand myself as a fast learner, a loyal employee and a hard worker.</p>
         <button class="hiremebtn"> Hire Me </button>
+        
         <div id="hiremepop">
           <div class="closebtn" onclick="closepop()">&times;</div>
-          <form>
+
+          <form  form role="form" id="hireme">
             <div class="form-group">
               <label for="company">Company Name</label>
-              <input type="text" class="form-control" id="email" placeholder="Enter your company name">
+              <input type="text" class="form-control" id="company" placeholder="Enter your company name">
             </div>
             <div class="form-group">
               <label for="name">Your Name</label>
@@ -40,13 +47,15 @@
               <label for="role">Please tell me about the role</label>
               <textarea id="role" class="form-control" placeholder="Tell me about the role"></textarea>
             </div>
-            <button type="submit" class="submit">Submit</button>
+            <button id="submit" class="submit">Submit</button>
           </form>
         </div>
       </div>
     </div>
   </section>
-  <section>
+<!-- End About Section -->
+
+  <section id="ability">
     <div class="container">
       <div class="myprogramme col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
         <h1> What I do?</h1>
@@ -61,17 +70,22 @@
           <br/> <b>Other stuff I touched:</b> Git, Source Tree, Wamp, WordPress, Wix, Audacity, Canva, Filezilla, Cyberduck,
           Microsoft Office Suite
         </p>
+        <a href="https://au.linkedin.com/in/lunwing"><button class="linkedin">My LinkedIn Profile</button></a>
       </div>
     </div>
   </section>
-  <section>
+<!-- End Ability Section-->
+
+
+  <section id="contact">
     <div class="container">
       <div class="contact col-sm-8 col-md-8 col-md-push-2 col-sm-push-2">
         <h2>Opinions? <br/>Advice? <br/>Question? </h2>
         <button class="contactbtn">Tell me your thought</button>
         <div id="contactpop">
           <div class="closebtn" onclick="closepop()">&times;</div>
-          <form>
+
+          <form name="contact form" method="post" id="hireme">
             <div class="form-group">
               <label for="company">Your Name</label>
               <input type="text" class="form-control" id="yourname" placeholder="Enter your name">
