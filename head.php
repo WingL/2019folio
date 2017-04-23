@@ -15,8 +15,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- <script src="js/jquery.event.move.js" type="text/javascript"></script> -->
-<script src="js/jquery.twentytwenty.js" type="text/javascript"></script>
-<link rel="stylesheet" href="css/twentytwenty.css" type="text/css" media="screen" />
 <script type="text/javascript" src="js/index.js"></script>
 <?php $filename = basename($_SERVER['PHP_SELF']);
 $pagename = substr($filename,0,-4);

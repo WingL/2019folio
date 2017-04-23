@@ -30,7 +30,7 @@
         <div id="hiremepop">
           <div class="closebtn" onclick="closepop()">&times;</div>
 
-          <form  form role="form" id="hireme">
+          <form  form role="form">
             <div class="form-group">
               <label for="company">Company Name</label>
               <input type="text" class="form-control" id="company" placeholder="Enter your company name">
@@ -47,7 +47,7 @@
               <label for="role">Please tell me about the role</label>
               <textarea id="role" class="form-control" placeholder="Tell me about the role"></textarea>
             </div>
-            <button id="submit" class="submit">Submit</button>
+            <button type="submit" class="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -85,7 +85,7 @@
         <div id="contactpop">
           <div class="closebtn" onclick="closepop()">&times;</div>
 
-          <form name="contact form" method="post" id="hireme">
+          <form name="contact form" method="post">
             <div class="form-group">
               <label for="company">Your Name</label>
               <input type="text" class="form-control" id="yourname" placeholder="Enter your name">

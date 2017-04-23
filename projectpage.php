@@ -1,7 +1,7 @@
 <?php include'head.php' ?>
 
 <body class="projectpage">
-    <?php include'header.php' ?>
+    <?php include'header.php'?>
         <?php  
 			$path = $_SERVER["QUERY_STRING"];
 			$extention = array("jpg","png");
@@ -11,19 +11,20 @@
 			$lines = file($info);
 			$id=$lines[1]; 
 			fclose($fo);
-			
+
 			$pre = ($id-1);
 			function find_project_for_id($find_id) {
+
 			# the found project ... (empty until we find it)
 			$found_project = "";
-	
+
 			# look in every project folder ...
-			foreach (glob("projects/*/*", GLOB_ONLYDIR) as $directory) {
+			foreach (glob("projects/*/", GLOB_ONLYDIR) as $directory) {
 				$project_file = "$directory/info.txt";
-				
+
 				# read information file
 				$lines = file($project_file);
-	
+
 				# line 1 is the ID ...
 				$project_id = $lines[1];
 	
@@ -52,9 +53,8 @@
 					?>
                     </h3>
                     <div>
-                        <?php $fo = fopen($info,'r');
-						echo $lines[2];
-						fclose($fo);
+                        <?php						
+						echo nl2br(join(array_slice($lines,2)));
 						?>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div id="nextproject">
                     <?php 
-					if(($id+1)!=10){
+					if(($id+1)!=11){
 					echo
 					"<a href=\"projectpage.php?" . find_project_for_id($id+1) . "\" alt=\"\"> &#10097</a>";}	
 					else{
