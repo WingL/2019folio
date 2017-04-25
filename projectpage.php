@@ -39,11 +39,37 @@
 		}
 		?>
 		<div class="projectdetial">
-            <div id="mainpic" class="col-sm-8">
+			<!--mainpic-->
+            <div id="mainpic" class="col-xs-12 col-sm-8 col-md-8">
                 <img src="<?php echo $img?>" alt="">
             </div>
-            <div id="projectinfo" class="col-sm-4">
-                <div id="description">
+			<!--End mainpic-->
+
+			<!--project info-->
+			<!--show in big-->
+            <div id="projectinfo-in-big" class="col-xs-12 col-sm-4 col-md-4 visible-md visible-lg hidden-xs">
+
+                <div class="description">
+                    <h4>
+                        <?php
+						$fo = fopen($info,'r');
+						$lines = file($info);
+						echo $lines[0]; 
+						fclose($fo);
+					?>
+                    </h4>
+                    <div>
+
+                        <?php						
+						echo nl2br(join(array_slice($lines,2)));
+						?>
+                    </div>
+                </div>
+				</div>
+				<!--End Show in Big-->
+				<!--Show in Small-->
+				<div id="projectinfo-in-small" class="col-xs-12 col-sm-4 col-md-4 visible-xs hidden-md hidden-lg">
+                <div class="description">
                     <h3>
                         <?php
 						$fo = fopen($info,'r');
@@ -59,6 +85,9 @@
                     </div>
                 </div>
 				</div>
+				<!--End Show in Small-->
+				
+
                 <div id="previousproject">
                     <?php 
 					if(($id-1)!=0){

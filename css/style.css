@@ -44,7 +44,13 @@ h2{
 
 h3{
 	font-size: 1.8em;
-	font-size: 1.8vw;
+	font-size: 5vw;
+	font-weight: 700;
+
+}
+
+h4{
+	font-size: 1.8em;
 	font-weight: 700;
 
 }
@@ -536,7 +542,7 @@ animation: AnimationName 30s ease infinite;
 	width: 100%;
 }
 
-#projectinfo {
+#projectinfo-in-big {
 	position:fixed;
 	padding:0 30px;
 	margin:0;
@@ -544,11 +550,26 @@ animation: AnimationName 30s ease infinite;
 	bottom:5px;
 }
 
-#description {
+#projectinfo-in-small {
+	position:relative;
+	float:left;
+	padding:0 30px;
+	margin:0;
+	right:0;
+	bottom:5px;
+}
+
+.description {
 	padding: 30px 0;
 }
 
-#description h3 {
+.description h3 {
+	text-align: left;
+	clear: both;
+	padding:0 0 10px 0;
+}
+
+.description h4 {
 	text-align: left;
 	clear: both;
 	padding:0 0 10px 0;

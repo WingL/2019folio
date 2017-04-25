@@ -6,27 +6,14 @@
         <div id="name" class="col-xs-2 col-sm-2 col-md-2">
           <a href="index"><span>Lun. &copy;</span></a>
         </div>
+        
         <!-- end id=name -->
-        <!-- id=menu -->
-        <!--show in big -->
-        <div id="folio" class="col-xs-2 col-sm-2 col-md-2 show-in-big">
+        <div id="folio" class="col-xs-2 col-sm-2 col-md-2">
             <!-- porfolio -->
             <a href="portfolio"><span> Portfolio</span></a>
         </div>
-        <!--end show in big-->
-        <!-- show in small-->
-        <div id="menu" class="col-xs-6 hidden-in-big">
-          <ul class="row">
-            <a href="https://au.linkedin.com/in/lunwing">
-              <li class="col-xs-3"><img src="img/linked.png"></li>
-            </a>
-            <a href="portfolio">
-              <li class="col-xs-3"><img src="img/portfolio.gif"></li>
-            </a>
-          </ul>
+        <!-- id=menu -->
         </div>
-        <!-- end show in small-->
-      </div>
       <!-- end menu row -->
   </header>
   <!--end Header-->
