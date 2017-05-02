@@ -27,17 +27,18 @@
         <p>I brand myself as a fast learner, a loyal employee and a hard worker.</p>
         <button class="hiremebtn"> Hire Me </button>
         
-        <div id="hiremepop">
+        <div id="hiremepop" class="col-sm-9 col-md-9 col-xs-12">
           <div class="closebtn" onclick="closepop()">&times;</div>
 
-          <form  form role="form">
+          <!--
+            <form role="form" id="contactForm" method="post" action="hireme.php">
             <div class="form-group">
               <label for="company">Company Name</label>
-              <input type="text" class="form-control" id="company" placeholder="Enter your company name">
+              <input type="text" class="form-control" id="company-name" placeholder="Enter your company name">
             </div>
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" class="form-control" id="yourname" placeholder="Enter your name">
+              <input type="text" class="form-control" id="person-name" placeholder="Enter your name">
             </div>
             <div class="form-group">
               <label for="email">Your email</label>
@@ -48,7 +49,44 @@
               <textarea id="role" class="form-control" placeholder="Tell me about the role"></textarea>
             </div>
             <button type="submit" class="submit">Submit</button>
+            <div id="msgSubmit" class="h3 text-center hidden">Message Submitted!</div>
           </form>
+          -->
+
+    <div class="formcontent">
+    <h3>Hiring me for...?</h3>
+    <form role="form" class="contactForm" data-toggle="validator" class="shake">
+
+            <div class="form-group col-sm-12">
+                <label for="company-name">The Company</label>
+                <input type="text" class="form-control" id="company-name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label for="person-name">Your Name</label>
+                <input type="text" class="form-control" id="person-name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                <div class="help-block with-errors"></div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                <div class="help-block with-errors"></div>
+            </div>
+
+        <div class="form-group">
+            <label for="role-detail">About the role</label>
+            <textarea id="role-detail" class="form-control" rows="4" placeholder="Enter your message" required></textarea>
+            <div class="help-block with-errors"></div>
+        </div>
+        <button type="submit" id="form-submit" class="submit ">Submit</button>
+        <div id="msgSubmit" class="h3 text-center hidden"></div>
+        <div class="clearfix"></div>
+    </form>
+    </div>
+
+<!---end Form -->
         </div>
       </div>
     </div>
@@ -85,7 +123,7 @@
         <div id="contactpop">
           <div class="closebtn" onclick="closepop()">&times;</div>
 
-          <form name="contact form" method="post">
+          <form id="contactform" method="post">
             <div class="form-group">
               <label for="company">Your Name</label>
               <input type="text" class="form-control" id="yourname" placeholder="Enter your name">
@@ -110,5 +148,6 @@
     </div>
   </section>
 </body>
+<script type="text/javascript" src="js/form-scripts.js"></script>
 
 </html>

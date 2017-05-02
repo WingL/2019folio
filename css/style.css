@@ -44,7 +44,7 @@ h2{
 
 h3{
 	font-size: 1.8em;
-	font-size: 5vw;
+	font-size: 3vw;
 	font-weight: 700;
 
 }
@@ -322,22 +322,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 }
 
 #hiremepop {
-	width: 300px;
 	background-color: #fff;
 	opacity: 1;
 	color: #353535;
 	padding: 20px;
 	position: absolute;
 	z-index: 1;
-	top: 0;
+	top: -60px;
 	right: 0;
 	left: 0;
 	margin:auto;
 	display:none;
 	text-align: center;
+	border-radius: 10px;
 }
 
-#hiremepop button{
+#hiremepop h2{
+	text-align: center;
+}
+
+#hiremepop input{
+	text-align: center;
+}
+
+#hiremepop textarea{
+	text-align: center;
+}
+
+.submit{
 	font-size: 1.2em;
 	border-radius: 50px;
 	margin:0 auto;
@@ -356,7 +368,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 	right: 20px;
 	font-size: 36px;
 	cursor:pointer;
+	margin-bottom:10px;
 
+}
+
+.formcontent{
+	margin-top:30px;  /*the gap between X(close button) and form title  */
+}
+
+.contactForm{
+	margin-top:30px;
 }
 
 .myprogramme {

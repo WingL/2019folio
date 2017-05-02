@@ -39,6 +39,7 @@ $(document).ready(function () {
         var email = $("#email").val();
         var role = $("#role").val();
 
+        console.log("sending mail?")
         $.ajax({
             url: "hireme.php",
             type: 'POST',
@@ -49,8 +50,9 @@ $(document).ready(function () {
                 role: role,
             },
             
-        });
+        });console.log("sent mail?")
     };
+     
 
 
 
