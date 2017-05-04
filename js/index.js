@@ -25,35 +25,6 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    console.log("hiremebtn");
-    $('.submit').click(function (event) {
-        event.preventDefault();
-        submitForm();
-    });
-        });
-
-    function submitForm(){
-        var company = $("#company").val();
-        var name = $("#yourname").val();
-        var email = $("#email").val();
-        var role = $("#role").val();
-
-        console.log("sending mail?")
-        $.ajax({
-            url: "hireme.php",
-            type: 'POST',
-            data: {
-                company: company,
-                name: name,
-                email: email,
-                role: role,
-            },
-            
-        });console.log("sent mail?")
-    };
-     
-
 
 
 $(document).ready(function () {

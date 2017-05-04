@@ -1,29 +1,35 @@
 <?php
+/*----------Hire Me Form ---------------*/
 $errorMSG = "";
 // COMPANY NAME
 if (empty($_POST["company-name"])) {
-    $errorMSG = "Company name is required ";
+    $errorMSG = "Who am I working for...?";
+    $companyname = "";
 } else {
-    $companyname = $_POST["company-name"];
 }
 // PERSON NAME
 if (empty($_POST["person-name"])) {
-    $errorMSG = "Your name is required ";
+    $errorMSG = "You are  Mr.....? or Ms....? ";
+    $name ="";
 } else {
     $name = $_POST["person-name"];
 }
 // EMAIL
 if (empty($_POST["email"])) {
-    $errorMSG .= "Your email is required ";
+    $errorMSG .= "Oops. So how can I contact you? ";
+    $email ="";
 } else {
     $email = $_POST["email"];
+    
 }
 // MESSAGE
-if (empty($_POST["role detail"])) {
+if (empty($_POST["message"])) {
     $errorMSG .= "Role detail is required ";
+    $message = "";
 } else {
-    $message = $_POST["role detail"];
+    $message = $_POST["message"];
 }
+
 $EmailTo = "wing@lunwing.com";
 $Subject = "Somebody Offer Me A Job! ";
 // prepare email body text
@@ -52,5 +58,67 @@ if ($success && $errorMSG == ""){
         echo $errorMSG;
     }
 }
-?>
 
+
+/*----------Contact Me Form ---------------*/
+$errorMSG = "";
+// COMPANY NAME
+if (empty($_POST["feedback-name"])) {
+    $errorMSG = "Mr.....? or Ms....? ";
+    $feedbackname = "";
+} else {
+    $feedbackname = $_POST["feedback-name"];
+}
+// EMAIL
+if (empty($_POST["feedback-email"])) {
+    $errorMSG .= "So how can I contact you? ";
+    $email ="";
+} else {
+    $feedbackemail = $_POST["feedback-email"];
+    
+}
+// PERSON detail
+if (empty($_POST["feedback-detail"])) {
+    $errorMSG = "Nothing about you to tell?";
+    $feedbackdetail ="";
+} else {
+    $feedbackdetail = $_POST["feedback-detail"];
+}
+// MESSAGE
+if (empty($_POST["feedback-message"])) {
+    $errorMSG .= "Your thought is very important to me! ";
+    $feedbackmessage = "";
+} else {
+    $feedbackmessage = $_POST["feedback-message"];
+}
+
+$EmailTo = "wing@lunwing.com";
+$Subject2 = "I got a feedback! ";
+// prepare email body text
+$Body = "";
+$Body .= "Contact person: ";
+$Body .= $feedbackname;
+$Body .= "\n";
+$Body .= "Contact Person's Email: ";
+$Body .= $feedbackemail;
+$Body .= "\n";
+$Body .= "Contact Person's detail: ";
+$Body .= $feedbackdetail;
+$Body .= "\n";
+$Body .= "The feedback: ";
+$Body .= $feedbackmessage;
+$Body .= "\n";
+// send email
+$success = mail($EmailTo, $Subject2, $Body, "From:".$feedbackemail);
+// redirect to success page
+if ($success && $errorMSG == ""){
+   echo "success";
+}else{
+    if($errorMSG == ""){
+        echo "Something went wrong :(";
+    } else {
+        echo $errorMSG;
+    }
+}
+
+?>

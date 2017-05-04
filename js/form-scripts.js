@@ -1,4 +1,4 @@
-$(".contactForm").validator().on("submit", function (event) {
+$(".contactForm").on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         formError();
@@ -16,15 +16,17 @@ function submitForm(){
     var company = $("#company-name").val();
     var name = $("#person-name").val();
     var email = $("#email").val();
-    var message = $("#message").val();
+    var message = $("#role-detail").val();
 
     $.ajax({
         type: "POST",
         url: "php/hireme.php",
-        data: "name=" + name + "&email=" + email + "&message=" + message,
+        data: "company-name=" + company + "&person-name=" + name + "&email=" + email + "&message=" + message,
         success : function(text){
+            console.log("formsuccess?", text)
             if (text == "success"){
                 formSuccess();
+                console.log("formsuccess!!")
             } else {
                 formError();
                 submitMSG(false,text);
