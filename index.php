@@ -31,7 +31,7 @@
           <div class="closebtn" onclick="closepop()">&times;</div>
     <div class="formcontent">
     <h4>Hiring me for...?</h4>
-    <form role="form" class="contactForm">
+    <form role="form" id="hire" class="contactForm">
 
             <div class="form-group col-sm-12">
                 <label for="company-name">The Company</label>
@@ -99,8 +99,7 @@
             <div id="contactpop" class="col-sm-6 col-md-6 col-xs-12">
           <div class="closebtn" onclick="closepop()">&times;</div>
     <div class="formcontent">
-    <h4>What are you thinking...?</h4>
-    <form role="form" class="contactForm">
+    <form role="form" id="thought" class="contactForm">
 
             <div class="form-group col-sm-12">
                 <label for="feedback-name">Your Name</label>
@@ -116,17 +115,17 @@
 
             <div class="form-group col-sm-12">
                 <label for="feedback-detail">Something about you</label>
-                <input type="text" class="form-control" id="person-name" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
+                <input type="text" class="form-control" id="feedback-detail" placeholder="Enter name" required data-error="NEW ERROR MESSAGE">
                 <div class="help-block with-errors"></div>
             </div>
 
         <div class="form-group col-sm-12">
             <label for="feedback-message">Your thought</label>
-            <textarea id="role-detail" class="form-control" rows="3" placeholder="Enter your message" required></textarea>
+            <textarea id="feedback-message" class="form-control" rows="3" placeholder="Enter your message" required></textarea>
             <div class="help-block with-errors"></div>
         </div>
         <button type="submit" id="form-submit" class="submit ">Submit</button>
-        <div id="msgSubmit" class="h3 text-center hidden"></div>
+        <div id="ThoughtSubmit" class="h3 text-center hidden"></div>
         <div class="clearfix"></div>
     </form>
     </div>
@@ -135,9 +134,6 @@
         </div>
       </div>
     </div>
-
-
-
   </section>
 </body>
 <script type="text/javascript" src="js/form-scripts.js"></script>

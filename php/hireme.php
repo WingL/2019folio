@@ -6,6 +6,7 @@ if (empty($_POST["company-name"])) {
     $errorMSG = "Who am I working for...?";
     $companyname = "";
 } else {
+    $companyname = $_POST["company-name"];
 }
 // PERSON NAME
 if (empty($_POST["person-name"])) {
@@ -58,67 +59,4 @@ if ($success && $errorMSG == ""){
         echo $errorMSG;
     }
 }
-
-
-/*----------Contact Me Form ---------------*/
-$errorMSG = "";
-// COMPANY NAME
-if (empty($_POST["feedback-name"])) {
-    $errorMSG = "Mr.....? or Ms....? ";
-    $feedbackname = "";
-} else {
-    $feedbackname = $_POST["feedback-name"];
-}
-// EMAIL
-if (empty($_POST["feedback-email"])) {
-    $errorMSG .= "So how can I contact you? ";
-    $email ="";
-} else {
-    $feedbackemail = $_POST["feedback-email"];
-    
-}
-// PERSON detail
-if (empty($_POST["feedback-detail"])) {
-    $errorMSG = "Nothing about you to tell?";
-    $feedbackdetail ="";
-} else {
-    $feedbackdetail = $_POST["feedback-detail"];
-}
-// MESSAGE
-if (empty($_POST["feedback-message"])) {
-    $errorMSG .= "Your thought is very important to me! ";
-    $feedbackmessage = "";
-} else {
-    $feedbackmessage = $_POST["feedback-message"];
-}
-
-$EmailTo = "wing@lunwing.com";
-$Subject2 = "I got a feedback! ";
-// prepare email body text
-$Body = "";
-$Body .= "Contact person: ";
-$Body .= $feedbackname;
-$Body .= "\n";
-$Body .= "Contact Person's Email: ";
-$Body .= $feedbackemail;
-$Body .= "\n";
-$Body .= "Contact Person's detail: ";
-$Body .= $feedbackdetail;
-$Body .= "\n";
-$Body .= "The feedback: ";
-$Body .= $feedbackmessage;
-$Body .= "\n";
-// send email
-$success = mail($EmailTo, $Subject2, $Body, "From:".$feedbackemail);
-// redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
-}else{
-    if($errorMSG == ""){
-        echo "Something went wrong :(";
-    } else {
-        echo $errorMSG;
-    }
-}
-
 ?>
