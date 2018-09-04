@@ -1,0 +1,163 @@
+[12-Feb-2018 02:58:39 UTC] WordPress database error Unknown column 'wp_' in 'field list' for query SELECT wp_
+[02-Mar-2018 07:00:43 UTC] PHP Warning:  Division by zero in /home/lunwingc/public_html/prolinemedical/wp-content/themes/kallyas/framework/zion-builder/hg-framework/inc/image-resizer/class-image-resize.php on line 64
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 6
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 6,
+   'name' => 'variable',
+   'slug' => 'variable',
+   'term_group' => 0,
+   'term_taxonomy_id' => 6,
+   'taxonomy' => 'product_type',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 7
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 7,
+   'name' => 'external',
+   'slug' => 'external',
+   'term_group' => 0,
+   'term_taxonomy_id' => 7,
+   'taxonomy' => 'product_type',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 8
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 8,
+   'name' => 'exclude-from-search',
+   'slug' => 'exclude-from-search',
+   'term_group' => 0,
+   'term_taxonomy_id' => 8,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 9
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 9,
+   'name' => 'exclude-from-catalog',
+   'slug' => 'exclude-from-catalog',
+   'term_group' => 0,
+   'term_taxonomy_id' => 9,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 10
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 10,
+   'name' => 'featured',
+   'slug' => 'featured',
+   'term_group' => 0,
+   'term_taxonomy_id' => 10,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists id check: 11
+[02-Mar-2018 11:31:02 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 11,
+   'name' => 'outofstock',
+   'slug' => 'outofstock',
+   'term_group' => 0,
+   'term_taxonomy_id' => 11,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 12
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 12,
+   'name' => 'rated-1',
+   'slug' => 'rated-1',
+   'term_group' => 0,
+   'term_taxonomy_id' => 12,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 13
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 13,
+   'name' => 'rated-2',
+   'slug' => 'rated-2',
+   'term_group' => 0,
+   'term_taxonomy_id' => 13,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 14
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 14,
+   'name' => 'rated-3',
+   'slug' => 'rated-3',
+   'term_group' => 0,
+   'term_taxonomy_id' => 14,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 15
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 15,
+   'name' => 'rated-4',
+   'slug' => 'rated-4',
+   'term_group' => 0,
+   'term_taxonomy_id' => 15,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 16
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 16,
+   'name' => 'rated-5',
+   'slug' => 'rated-5',
+   'term_group' => 0,
+   'term_taxonomy_id' => 16,
+   'taxonomy' => 'product_visibility',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists id check: 17
+[02-Mar-2018 11:31:03 UTC] [IMPORTER] Term exists response: WP_Term::__set_state(array(
+   'term_id' => 17,
+   'name' => 'Uncategorized',
+   'slug' => 'uncategorized',
+   'term_group' => 0,
+   'term_taxonomy_id' => 17,
+   'taxonomy' => 'product_cat',
+   'description' => '',
+   'parent' => 0,
+   'count' => 0,
+   'filter' => 'raw',
+))
+[05-Jun-2018 05:18:16 UTC] PHP Warning:  getimagesize(/home/lunwingc/public_html/prolinemedical/wp-content/uploads/revslider/objects/object_dvd_1.png): failed to open stream: No such file or directory in /home/lunwingc/public_html/prolinemedical/wp-content/plugins/revslider/includes/object-library.class.php on line 964
+[05-Jun-2018 05:18:16 UTC] PHP Warning:  getimagesize(/home/lunwingc/public_html/prolinemedical/wp-content/uploads/revslider/objects/beach_houses.jpg): failed to open stream: No such file or directory in /home/lunwingc/public_html/prolinemedical/wp-content/plugins/revslider/includes/object-library.class.php on line 964
+[05-Jun-2018 05:18:16 UTC] PHP Warning:  getimagesize(/home/lunwingc/public_html/prolinemedical/wp-content/uploads/revslider/objects/relax_hammock.jpg): failed to open stream: No such file or directory in /home/lunwingc/public_html/prolinemedical/wp-content/plugins/revslider/includes/object-library.class.php on line 964
+[05-Jun-2018 05:18:16 UTC] PHP Warning:  getimagesize(/home/lunwingc/public_html/prolinemedical/wp-content/uploads/revslider/objects/object_plant_1.png): failed to open stream: No such file or directory in /home/lunwingc/public_html/prolinemedical/wp-content/plugins/revslider/includes/object-library.class.php on line 964
+[05-Jun-2018 05:18:16 UTC] PHP Warning:  getimagesize(/home/lunwingc/public_html/prolinemedical/wp-content/uploads/revslider/objects/forest_road_2.jpg): failed to open stream: No such file or directory in /home/lunwingc/public_html/prolinemedical/wp-content/plugins/revslider/includes/object-library.class.php on line 964
