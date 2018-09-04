@@ -4,16 +4,16 @@
     <?php include'header.php' ?>
     <div class="container">
         <div class="thumbsarea display-animation col-sm-10 col-md-10 col-md-push-1 col-sm-push-1 col-xs-12 ">
-
-            <a href="../niagra" class="col-sm-4 col-md-4 col-xs-12">
+           
+           <a href="http://www.lunwing.com/ffs" class="col-sm-4 col-md-4 col-xs-12">
                 <div class="ratio">
-                    <img src="img/niagra.jpg">
+                    <img src="img/ffs.png">
                 </div>
             </a>
 
-            <a href="http://www.lunwing.com/ffs" class="col-sm-4 col-md-4 col-xs-12">
+            <a href="http://www.prolinemedical.com.au" class="col-sm-4 col-md-4 col-xs-12">
                 <div class="ratio">
-                    <img src="img/ffs.jpg">
+                    <img src="img/proline.png">
                 </div>
             </a>
 
@@ -23,7 +23,7 @@
                             foreach (glob("$datadir/*", GLOB_ONLYDIR) as $project_path) {
                             
                             $project = basename($project_path);
-                            $thumb="thumb.jpg";
+                            $thumb="thumb.png";
                             
 
 			                 echo '

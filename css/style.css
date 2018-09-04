@@ -29,12 +29,10 @@ html,body{
 
 body {
 	/*background: #3AAFA9;*/
-	background:#fff;
-	line-height:1.8;
+	background:#FAFAFA;
 	position: relative;
 	font-family: 'Montserrat', 'san-serif';
 	color:#17251a;
-	font-size:2em;
 	width:100%;
 }
 
@@ -62,22 +60,22 @@ h3{
 }
 
 h4{
-	font-size: 1.8em;
+	font-size: 1.2em;
 	font-weight: 700;
-	line-height: 1.5em;
+	line-height: 1em;
 
 }
 p{
     color:#17251a;
-	font-size:1em;
-	line-height:1.5;
+	font-size:18px;
+	line-height:30px;
 }
 
 
 button{
 	margin: 10px auto;
 	border-radius: 50px;
-	border:2px solid #fff;
+	border:2px solid #77bc1f;
 	background: none;
 	padding:5px 20px;
 	font-size: 1.5em;
@@ -156,20 +154,20 @@ header .row{
 	text-align: center;
 	text-decoration: none;
 	margin: 0;
-	color: #ffffff;
+	color: #77bc1f;
 }
 
 header .row a:link {
-	color: #ffffff;
+	color: #77bc1f;
 	text-decoration: none;
 }
 
 header .row a:visited:not(.btn) {
-	color: #ffffff;
+	color: #77bc1f;
 }
 
 header :hover {
-	color: #ffffff;
+	color: #77bc1f;
 	text-decoration: none;
 	background-color:none;
 }
@@ -179,16 +177,17 @@ header .row :hover{
 }
 
 header .row a:active {
-	color: #ffffff;
+	color: #77bc1f;
 }
 
 header .row a:hover {
 	
-	color: #fff;
+	color: #77bc1f;
 }
 
 #name{
 	float:left;
+font-size:1.3em;
 	
 }
 
@@ -205,7 +204,7 @@ header .row a:hover {
 
 
 #name a:hover:before {
-    content:"Index";
+    content:"Back to hompage";
 	-webkit-transform: translate(-150%,0);
     -moz-transform: translate(-150%,0);
     -ms-transform: translate(-150%,0);
@@ -216,6 +215,7 @@ header .row a:hover {
 #folio {
 	float: right;
 	padding: 0;
+	font-size:1.3em;
 }
 
 #folio a:hover span{
@@ -251,50 +251,6 @@ header .row a:hover {
 /*index.php*/
 
 /*Welcome Section*/
-#indexbody section:nth-child(2){
-	background: -moz-linear-gradient(323deg, #77BC1F 0%, #77BC1F 10%, #30CFC1 90%, #30CFC1 100%); /* ff3.6+ */
-	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #77BC1F), color-stop(10%, #77BC1F), color-stop(90%, #30CFC1), color-stop(100%, #30CFC1)); /* safari4+,chrome */
-	background: -webkit-linear-gradient(323deg, #77BC1F 0%, #77BC1F 10%, #30CFC1 90%, #30CFC1 100%); /* safari5.1+,chrome10+ */
-	background: -o-linear-gradient(323deg, #77BC1F 0%, #77BC1F 10%, #30CFC1 90%, #30CFC1 100%); /* opera 11.10+ */
-	background: -ms-linear-gradient(323deg, #77BC1F 0%, #77BC1F 10%, #30CFC1 90%, #30CFC1 100%); /* ie10+ */
-	background: linear-gradient(127deg, #77BC1F 0%, #77BC1F 10%, #30CFC1 90%, #30CFC1 100%); /* w3c */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77BC1F', endColorstr='#30CFC1',GradientType=1 ); /* ie6-9 */
-}
-
-/*About Section*/
-#indexbody section:nth-child(3){
-	background: -moz-linear-gradient(37deg, #C07DFF 0%, #C07DFF 10%, #30CFC1 90%, #30CFC1 100%); /* ff3.6+ */
-	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #C07DFF), color-stop(10%, #C07DFF), color-stop(90%, #30CFC1), color-stop(100%, #30CFC1)); /* safari4+,chrome */
-	background: -webkit-linear-gradient(37deg, #C07DFF 0%, #C07DFF 10%, #30CFC1 90%, #30CFC1 100%); /* safari5.1+,chrome10+ */
-	background: -o-linear-gradient(37deg, #C07DFF 0%, #C07DFF 10%, #30CFC1 90%, #30CFC1 100%); /* opera 11.10+ */
-	background: -ms-linear-gradient(37deg, #C07DFF 0%, #C07DFF 10%, #30CFC1 90%, #30CFC1 100%); /* ie10+ */
-	background: linear-gradient(53deg, #C07DFF 0%, #C07DFF 10%, #30CFC1 90%, #30CFC1 100%); /* w3c */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C07DFF', endColorstr='#30CFC1',GradientType=1 ); /* ie6-9 */
-}
-
-/*Ability Section*/
-#indexbody section:nth-child(4){
-background: -moz-linear-gradient(323deg, #C07DFF 0%, #C07DFF 10%, #ffa600 90%, #ffa600 100%); /* ff3.6+ */
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #C07DFF), color-stop(10%, #C07DFF), color-stop(90%, #ffa600), color-stop(100%, #ffa600)); /* safari4+,chrome */
-background: -webkit-linear-gradient(323deg, #C07DFF 0%, #C07DFF 10%, #ffa600 90%, #ffa600 100%); /* safari5.1+,chrome10+ */
-background: -o-linear-gradient(323deg, #C07DFF 0%, #C07DFF 10%, #ffa600 90%, #ffa600 100%); /* opera 11.10+ */
-background: -ms-linear-gradient(323deg, #C07DFF 0%, #C07DFF 10%, #ffa600 90%, #ffa600 100%); /* ie10+ */
-background: linear-gradient(127deg, #C07DFF 0%, #C07DFF 10%, #ffa600 90%, #ffa600 100%); /* w3c */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C07DFF', endColorstr='#ffa600',GradientType=1 ); /* ie6-9 */
-}
-
-/*Contact Section*/
-#indexbody section:nth-child(5){
-background: -moz-linear-gradient(37deg, #F2FF00 0%, #F2FF00 10%, #ffa600 90%, #ffa600 100%); /* ff3.6+ */
-background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #F2FF00), color-stop(10%, #F2FF00), color-stop(90%, #ffa600), color-stop(100%, #ffa600)); /* safari4+,chrome */
-background: -webkit-linear-gradient(37deg, #F2FF00 0%, #F2FF00 10%, #ffa600 90%, #ffa600 100%); /* safari5.1+,chrome10+ */
-background: -o-linear-gradient(37deg, #F2FF00 0%, #F2FF00 10%, #ffa600 90%, #ffa600 100%); /* opera 11.10+ */
-background: -ms-linear-gradient(37deg, #F2FF00 0%, #F2FF00 10%, #ffa600 90%, #ffa600 100%); /* ie10+ */
-background: linear-gradient(53deg, #F2FF00 0%, #F2FF00 10%, #ffa600 90%, #ffa600 100%); /* w3c */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', endColorstr='#ffa600',GradientType=1 ); /* ie6-9 */
-}
-
-/*Welcome Section*/
 
 #welcome{
 	color:#17252A;
@@ -323,14 +279,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 	margin-top:100px;
 	margin-bottom:50px;
 	padding: 0;
-	color: #2B7A78;
+	color: #77bc1f;
 	-webkit-transition-duration: .8s; /* Safari */
     transition-duration: .8s;
 }
 
 
+
 .scroll:hover{
-	color:#fff;
+	color:#77bc1f;
 	padding:20px 0 20px 0;
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
@@ -342,17 +299,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 
 .scroll a:link, .scroll a:visited {
 	text-decoration: none;
-	color:#2B7A78;
+	color:#77bc1f;
 }
 
 .scroll a:hover, .scroll a:active{
 	text-decoration: none;
-	color:#fff;
+	color:#2B7A78;
 }
 
+
+/*-----------About Me Section--------*/
 .aboutme {
-	margin-top: 20px;
-	margin-bottom:50px;
+	margin-top: 60px;
+
 
 }
 
@@ -365,9 +324,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 	margin-top:50px;
 }
 #hiremepop {
-	background-color: #fff;
+	background-color: #77bc1f;
 	opacity: 1;
-	color: #353535;
+	color: #fff;
 	padding: 10px;
 	position: absolute;
 	z-index: 1;
@@ -445,7 +404,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F2FF00', end
 	font-size: 1.2em;
 	border-radius: 50px;
 	margin:10px 0 0 0 ;
-	border:2px solid #fff;
 }
 
 .myprogramme a:link{
@@ -645,7 +603,7 @@ width:100%;
 }
 
 .description {
-	padding: 30px 0;
+	padding: 10px 0;
 }
 
 .description h3 {
@@ -659,7 +617,7 @@ width:100%;
 	text-align: left;
 	clear: both;
 	padding:0 0 10px 0;
-	color:#fff;
+	color:#77bc1f;
 	font-family:"roboto slab",serif;
 }
 

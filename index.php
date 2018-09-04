@@ -19,8 +19,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="http://lunwing.com/img/logo-white.svg" alt="Lun Wing Logo">
         </div>
         -->
-        <h2 style="color:#fff;">Graphic + Web + Marketing</h2>
-        <h3>Wing Lun in Brisbane</h3>
+        <h2 style="color:#77bc1f;">Hello! I'm Wing Lun</h2>
+        <h3>In Brisbane, Australia</h3>
         <div class="scroll"><a href="#about">&#10095</a></div>
       </div>
     
@@ -30,10 +30,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="about">
     <div class="container">
       <div class="aboutme col-sm-12 col-md-12">
-        <h2 style="color:#fff"> Who am I?</h2>
+        <h2 style="color:#77bc1f"> Who am I?</h2>
         <h3> Name &#58; Wing Lun</h3>
         <p> A graphic &#38; web designer </p>
-        <p> A part-time marketing student</p>
+        <p> A marketing graduate</p>
         <p>Fast learner, loyal employee &amp; hard worker</p>
         <p>Based in Logan/Brisbane, Queensland Australia</p>
         
@@ -86,13 +86,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="ability">
     <div class="container">
       <div class="myprogramme col-sm-12 col-md-12">
-        <h2 style="color:#fff"> What do I do?</h2>
+        <h2 style="color:#77bc1f"> What do I do?</h2>
         <h3> Graphic +  UI + Web + Front End + Marketing</h3>
         <p> <b>Expert: </b> Illustrator, Photoshop, InDesign</p>
         <p> <b>Coding Tools:</b> Visual Studio Code, Notepad++</p>
         <p> <b>Web:</b> HTML, CSS, Javascript, PHP, WordPress, Wix </p>
         <p> <b>Intermediate:</b> Premier Pro, After Effect, Git, Source Tree</p>
         <p> <b>Advance: </b> Dreamweaver, Mailchimp, Vision6, Microsoft Office Suite, Canva, Venngage</p>
+        <p> <b>Marketing</b>: SEO, Google Ad, eDM, Research, Data analyst</p>
         <a href="https://au.linkedin.com/in/lunwing"><button class="linkedin">My LinkedIn Profile</button></a>
       </div>
     </div>
@@ -103,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="contact">
     <div class="container">
       <div class="contact col-sm-12 col-md-12">
-        <h2 style="color:#fff; line-height:1.5">Opinions? Advice? Questions? </h2>
+        <h2 style="color:#77bc1f; line-height:1.5">Opinions? Advice? Questions? </h2>
         <button class="contactbtn">Tell me your thoughts</button>
             <div id="contactpop" class="col-sm-6 col-md-6 col-xs-12">
           <div class="closebtn" onclick="closepop()">&times;</div>

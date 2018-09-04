@@ -58,26 +58,26 @@
 						fclose($fo);
 					?>
                     </h4>
-                    <div>
+                    <p>
 
                         <?php						
 						echo nl2br(join(array_slice($lines,2)));
 						?>
-                    </div>
+                    </p>
                 </div>
 				</div>
 				<!--End Show in Big-->
 				<!--Show in Small-->
 				<div id="projectinfo-in-small" class="col-xs-12 col-sm-4 col-md-4 visible-xs hidden-md hidden-lg">
                 <div class="description">
-                    <h3>
+                    <h4>
                         <?php
 						$fo = fopen($info,'r');
 						$lines = file($info);
 						echo $lines[0]; 
 						fclose($fo);
 					?>
-                    </h3>
+                    </h4>
                     <div>
                         <?php						
 						echo nl2br(join(array_slice($lines,2)));
